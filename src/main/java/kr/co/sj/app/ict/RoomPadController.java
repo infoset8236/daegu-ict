@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictRoomPad")
-@RequestMapping(value = {"/ict/{context_path}/roompad"})
+@RequestMapping(value = {"/ict/{context_path}/roomPad"})
 public class RoomPadController extends BaseController {
 
     public final static String ICT_TYPE = "/ict/";
-    public final static String PATH = "/roompad/";
+    public final static String PATH = "/roomPad/";
 
     private String basePath (String context_path) {
         return ICT_TYPE + context_path + PATH;
