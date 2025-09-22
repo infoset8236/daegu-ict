@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictMedia")
 @RequestMapping(value = {"/ict/{context_path}/media"})
-public class MediaController extends BaseController {
+public class MediaController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/media/";

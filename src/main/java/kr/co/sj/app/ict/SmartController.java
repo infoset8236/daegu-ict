@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictSmart")
 @RequestMapping(value = {"/ict/{context_path}/smart"})
-public class SmartController extends BaseController {
+public class SmartController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/smart/";

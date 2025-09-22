@@ -33,14 +33,14 @@
             <div>lendingDay</div>
         </div>
         <div class="lendingDayValue">
-            11<span>월</span>01<span>일</span>
+            01<span>월</span>01<span>일</span>
         </div>
         <div class="returnDay">
             <div>책 반납 날</div>
             <div>returnDay</div>
         </div>
         <div class="returnDayValue">
-            11<span>월</span>15<span>일</span>
+            01<span>월</span>05<span>일</span>
         </div>
     </div>
     <div class="copyright">Daegu metropolitan library</div>

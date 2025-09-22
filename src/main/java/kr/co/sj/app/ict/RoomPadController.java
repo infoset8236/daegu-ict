@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictRoomPad")
 @RequestMapping(value = {"/ict/{context_path}/roomPad"})
-public class RoomPadController extends BaseController {
+public class RoomPadController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/roomPad/";

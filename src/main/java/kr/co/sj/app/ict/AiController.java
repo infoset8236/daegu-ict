@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictAi")
 @RequestMapping(value = {"/ict/{context_path}/ai"})
-public class AiController extends BaseController {
+public class AiController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/ai/";

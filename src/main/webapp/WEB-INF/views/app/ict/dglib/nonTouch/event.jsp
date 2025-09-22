@@ -26,23 +26,7 @@
     </div>
     <div class="content">
         <div class="decoration">TODAY’S<br>LIBRARY<br>EVENT</div>
-        <ul class="eventList">
-            <%-- 반복문으로 li 출력 --%>
-            <li class="event">
-                <div>01</div>
-                <div>
-                    글과 함께 힐링하기 : 캘리그라피 체험 어디까지 할 수 있나 볼까요
-                </div>
-                <div>
-                    <span>시간</span>
-                    <p>14:00 ~ 16:00</p>
-                </div>
-                <div>
-                    <span>장소</span>
-                    <p>2층 평생학습실(배움1실)</p>
-                </div>
-            </li>
-        </ul>
+        <ul class="eventList" id="eventList"></ul>
     </div>
     <div class="copyright">Daegu metropolitan library</div>
 </div>

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictTouch")
 @RequestMapping(value = {"/ict/{context_path}/touch"})
-public class TouchController extends BaseController {
+public class TouchController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/touch/";

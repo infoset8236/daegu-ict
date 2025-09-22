@@ -24,13 +24,7 @@
         <div>공지사항</div>
     </div>
     <div class="content">
-        <ul class="noticeList">
-            <%-- 반복문으로 li 출력 --%>
-            <li>
-                <img src="/resources/ict/dglib/nonTouch/img/common/dummy.png" alt="">
-                <div class="title"><p>공지사항 타이틀</p></div>
-            </li>
-        </ul>
+        <ul class="noticeList" id="noticeList"></ul>
     </div>
     <div class="copyright">Daegu metropolitan library</div>
 </div>

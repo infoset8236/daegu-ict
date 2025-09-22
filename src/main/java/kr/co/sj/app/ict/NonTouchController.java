@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictNonTouch")
 @RequestMapping(value = {"/ict/{context_path}/nonTouch"})
-public class NonTouchController extends BaseController {
+public class NonTouchController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/nonTouch/";

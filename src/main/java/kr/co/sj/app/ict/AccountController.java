@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictAccount")
 @RequestMapping(value = {"/ict/{context_path}/account"})
-public class AccountController extends BaseController {
+public class AccountController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/account/";

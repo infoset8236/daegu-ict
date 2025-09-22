@@ -25,17 +25,7 @@
         <div>인기도서</div>
     </div>
     <div class="content">
-        <div class="bestBookList">
-            <%-- 반복문으로 div 출력 --%>
-            <div class="book">
-                <img src="/resources/ict/dglib/nonTouch/img/common/dummy.png" alt="">
-                <div>1위</div>
-                <div>나는 메트로폴리탄 미술관의 경비원입니다</div>
-                <div>패트릭 브링리· 웅진지식하우스</div>
-                <div><span>발행년도</span> 2023</div>
-                <div><span>소장위치</span> 2F 종합자료실</div>
-            </div>
-        </div>
+        <div class="bestBookList" id="bestBookList"></div>
     </div>
     <div class="copyright">Daegu metropolitan library</div>
 </div>

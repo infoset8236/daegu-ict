@@ -25,14 +25,7 @@
         <div>신착도서</div>
     </div>
     <div class="content">
-        <div class="newBookList">
-            <%-- 반복문으로 div 출력 --%>
-            <div class="book">
-                <img src="/resources/ict/dglib/nonTouch/img/common/dummy.png" alt="">
-                <div>미래의 나를 만난 후 오늘이 달라졌다</div>
-                <div>할 허시필드</div>
-            </div>
-        </div>
+        <div class="newBookList" id="newBookList"></div>
     </div>
     <div class="copyright">Daegu metropolitan library</div>
 </div>

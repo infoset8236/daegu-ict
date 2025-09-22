@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller("ictGallery")
 @RequestMapping(value = {"/ict/{context_path}/gallery"})
-public class GalleryController extends BaseController {
+public class GalleryController {
 
     public final static String ICT_TYPE = "/ict/";
     public final static String PATH = "/gallery/";
