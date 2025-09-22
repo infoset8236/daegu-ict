@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "color-hex-length": "short",
+    "block-no-empty": true,
+    "declaration-block-no-duplicate-properties": true,
+    "function-url-quotes": "always",
+    "declaration-empty-line-before": "never",
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$",
+    "number-max-precision": 5
+  }
+}

@@ -3,5 +3,74 @@
     background-image: url("/resources/ict/dglib/roompad/img/bg.png");
     background-repeat: no-repeat;
     background-position: top left;
+    background-size: contain;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 2.81rem;
+    background: #0C0E34;
+    box-shadow: 0 0 40px 0 rgb(0 0 0 / 40%), 40px 0 80px 0 rgb(0 0 0 / 20%);
+}
+
+.library {
+    font-family: Paperlogy-Medium, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 2.34rem;
+    padding: 1.25rem 1.875rem;
+    color: #FFF;
+}
+
+.caption {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    line-height: 100%;
+    margin-bottom: 1.69rem;
+    text-align: center;
+    letter-spacing: -0.0225rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.clock {
+    position: relative;
+    width: 10.3125rem;
+    height: 10.3125rem;
+    margin: 1.69rem auto;
+    background-image: url("/resources/ict/dglib/roompad/img/clock.png");
+    background-repeat: no-repeat;
     background-size: cover;
+}
+
+.hour, .minute, .second {
+    position: absolute;
+    transform-origin: bottom center;
+    background: #FFF;
+}
+
+.hour {
+    top: 3.4375rem; /* Offset from top to create crossing effect */
+    left: 5.09375rem; /* Adjusted to position near center */
+    width: 0.125rem;
+    height: 3.4375rem; /* Shortened to create offset effect */
+}
+
+.minute {
+    top: 2.5rem; /* Different pivot point */
+    left: 5.15625rem; /* Slightly offset from hour */
+    width: 0.125rem;
+    height: 4.0rem; /* Slightly longer than hour for distinction */
+}
+
+.second {
+    top: 1.5rem; /* Offset to create crossing effect */
+    left: 5.140625rem; /* Fine-tuned to cross other hands */
+    width: 0.03125rem;
+    height: 5.3125rem; /* Longest hand */
 }

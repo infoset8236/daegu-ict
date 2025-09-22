@@ -1,0 +1,22 @@
+{
+  "name": "daegu-ict",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infoset8236/daegu-ict.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infoset8236/daegu-ict/issues"
+  },
+  "homepage": "https://github.com/infoset8236/daegu-ict#readme",
+  "devDependencies": {
+    "stylelint": "^16.24.0"
+  }
+}
