@@ -1,0 +1,96 @@
+.container {
+    background-image: url("/resources/ict/dglib/nonTouch/img/return/bg.png");
+}
+
+.content {
+    padding: 0 6.25rem;
+    animation: fade-in-up 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 4.75rem;
+    font-style: normal;
+    line-height: 140%;
+    margin: 10.63rem auto 8.75rem;
+    text-align: left;
+    letter-spacing: -0.11875rem;
+    color: #191F28;
+}
+
+.lendingDay, .returnDay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.42rem;
+    padding: 2.5rem 3.75rem;
+    border-radius: 2.5rem;
+    backdrop-filter: blur(1.5625rem);
+}
+
+.lendingDay div:first-child, .returnDay div:first-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    line-height: 2.5rem;
+    color: #FFF;
+}
+
+.lendingDay div:last-child, .returnDay div:last-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 1.875rem;
+    font-style: normal;
+    line-height: normal;
+    color: #EFF1F3;
+}
+
+
+.lendingDay {
+    background: rgb(0 0 0 / 30%);
+}
+
+.returnDay {
+    background: rgb(52 55 216 / 40%);
+}
+
+.lendingDayValue, .returnDayValue {
+    font-family: RobotoBold, sans-serif;
+    font-size: 16.875rem;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+}
+
+.lendingDayValue {
+    margin-bottom: 5.62rem;
+    color: #191F28;
+}
+
+.returnDayValue {
+    color: #3437D8;
+}
+
+.lendingDayValue span, .returnDayValue span {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 3.75rem;
+    font-style: normal;
+    line-height: normal;
+    color: #191F28;
+}
+
+.lendingDayValue span:first-child, .returnDayValue span:first-child {
+    margin-right: 2.84rem;
+}

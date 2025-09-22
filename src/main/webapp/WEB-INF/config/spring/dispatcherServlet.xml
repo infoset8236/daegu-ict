@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc     http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/task    http://www.springframework.org/schema/task/spring-task.xsd
+           http://www.springframework.org/schema/cache   http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <context:component-scan base-package="kr.co.sj.app" />
+
+    <mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <bean class="kr.co.sj.framework.resolver.CustomArgumentResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+    <mvc:default-servlet-handler />
+    <mvc:resources location="/resources/" mapping="/resources/**"/>
+
+    <task:annotation-driven />
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/dms/**"/>
+            <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+                <property name="cacheSeconds" value="0"/>
+                <property name="useExpiresHeader" value="true"/>
+                <property name="useCacheControlHeader" value="true"/>
+                <property name="useCacheControlNoStore" value="true"/>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <bean id="ehCacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="/WEB-INF/config/spring/ehcache-config.xml"/>
+		<property name="shared" value="true"/>
+	</bean>
+
+	<bean id="cacheManager"
+		  class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehCacheManagerFactory"/>
+	</bean>
+
+	<cache:annotation-driven cache-manager="cacheManager"/>
+
+    <!-- 스케줄러 샘플 (필요 시 주석 해제)
+    <task:scheduled-tasks>
+        <task:scheduled ref="sampleSettingScheduler" method="mergeSetting" cron="0 0 0 * * *"/>
+    </task:scheduled-tasks>
+    -->
+
+</beans>

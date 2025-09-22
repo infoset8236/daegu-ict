@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd 
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+	<context:component-scan base-package="kr.co.sj.framework.aop" />
+	
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	<tx:annotation-driven proxy-target-class="true" order="2"/>
+	
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="kr.co.sj.app" />
+	</bean>
+
+	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	    <qualifier value="master" />
+  		<constructor-arg index="0" ref="sqlSessionFactoryBean" />
+	</bean> -->
+	
+	<!-- Transaction Manager -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- define the SqlSessionFactory -->
+	<bean id="sqlSessionFactoryBean" class="kr.co.sj.framework.mybatis.RefreshableSqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:mybatisConfig.xml"/>
+ 		<property name="mapperLocations">
+ 			<list>
+ 				<value>classpath:kr/co/sj/app/**/mapper.xml</value>
+ 			</list>
+ 		</property>
+ 		<property name="interval" value="5000"/>
+	</bean>
+
+	<bean id="dataSourceRef" class="kr.co.sj.framework.dataSource.RoutingDataSource">
+	    <property name="targetDataSources">
+			<map key-type="kr.co.sj.framework.dataSource.DataSourceType">
+			    <entry key="MASTER" value-ref="dataSource_master"/>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource_master"/>
+	</bean>
+
+	<bean id="dataSource" class="com.p6spy.engine.spy.P6DataSource">
+        <constructor-arg ref="dataSourceRef" />
+    </bean>
+
+	<bean id="parentDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" abstract="true">
+	</bean>
+
+	<beans profile="localServer">
+		<bean id="dataSource_master" parent="parentDataSource">
+			<property name="driverClassName" value="${localServer.driverClassName}"/>
+			<property name="url" value="${localServer.url}"/>
+			<property name="username" value="${localServer.username}"/>
+			<property name="password" value="${localServer.password}"/>
+		</bean>
+	</beans>
+
+	<beans profile="devServer">
+		<bean id="realDataSource_master" class="org.apache.commons.dbcp.BasicDataSource">
+			<property name="driverClassName" value="${devServer.driverClassName}"/>
+			<property name="url" value="${devServer.url}"/>
+			<property name="username" value="${devServer.username}"/>
+			<property name="password" value="${devServer.password}"/>
+		</bean>
+
+		<bean id="dataSource_master" class="com.p6spy.engine.spy.P6DataSource">
+			<constructor-arg ref="realDataSource_master"/>
+		</bean>
+	</beans>
+
+	<beans profile="realServer">
+		<jee:jndi-lookup id="realDataSource_master" jndi-name="sj_jndi" />
+
+		<bean id="dataSource_master" class="com.p6spy.engine.spy.P6DataSource">
+			<constructor-arg ref="realDataSource_master"/>
+		</bean>
+	</beans>
+
+</beans>

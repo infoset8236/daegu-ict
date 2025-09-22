@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/resources/ict/dglib/nonTouch/img/index/bg.png");
+}
+
+.welcomeMessage {
+    display: flex;
+    flex-direction: column;
+    margin-top: 29rem;
+    transform: translateY(20px);
+    animation: fade-slide-in 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fade-slide-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcomeMessage div:first-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 4.625rem;
+    font-style: normal;
+    line-height: 5.25rem;
+    text-align: center;
+    letter-spacing: -0.185rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.welcomeMessage div:first-child span {
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 4.625rem;
+    font-style: normal;
+    line-height: 5.25rem;
+    text-align: center;
+    letter-spacing: -0.11563rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.welcomeMessage div:last-child {
+    font-family: Dinbol, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    color: #FFF;
+}

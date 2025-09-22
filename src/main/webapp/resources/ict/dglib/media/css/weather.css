@@ -1,0 +1,261 @@
+.btchHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 120rem;
+    height: 8.75rem;
+    padding: 0 3.75rem;
+}
+
+.btchHeader .btchHeaderL {
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    color: #FFF;
+}
+
+.btchHeader .btchHeaderR {
+    font-family: Pretendard-ExtraBold, sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #8B95A1;
+}
+
+.wthrContainer {
+    position: relative;
+    width: 120rem;
+    height: 100vh;
+    background: linear-gradient(105deg, rgb(18 22 29 / 50%) 10.68%, rgb(6 32 70 / 50%) 50.29%, rgb(18 22 29 / 50%) 89.9%),
+    linear-gradient(90deg, #12161D 0%, rgb(6 32 70 / 50%) 50%, #12161D 100%),
+    linear-gradient(0deg, #4E1A37 0%, #1D1D35 100%);
+}
+
+
+.wthrContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.03125rem;;
+    gap: 11.25rem;
+}
+
+.wthrContent .weatherItem{
+    display: flex;
+    flex-direction: column;
+    gap: 6.75rem;
+}
+
+.wthrContent .weatherItem .weatherWidget {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    gap: 3rem;
+}
+
+.wthrContent .weatherItem .weatherWidget > div {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4.5rem;
+}
+
+.wthrContent .weatherItem .weatherWidget .todayInfo {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 0.75rem;
+    gap: 2.25rem;
+}
+
+.wthrContent .weatherItem .weatherWidget .todayInfo div:first-child {
+    font-family: Pretendard-ExtraBold,sans-serif;
+    font-size: 2.25rem;
+    font-weight: 800;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.wthrContent .weatherItem .weatherWidget .todayInfo div:last-child {
+    font-family: Pretendard-SemiBold, sans-serif;
+    font-size: 2.25rem;
+    font-style: normal;
+    line-height: normal;
+    color: #FFF;
+}
+
+.wthrContent .weatherItem .weatherWidget .weatherIcon{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.wthrContent .weatherItem .weatherWidget .todayTemp {
+    font-family: Roboto, sans-serif;
+    font-size: 12rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.48rem;
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+}
+
+.wthrContent .weatherItem .weatherWidget .feelsLike {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    padding: 0 0.75rem;
+    gap: 2.25rem;
+}
+
+.wthrContent .weatherItem .weatherWidget .feelsLike div:first-child {
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    color: #FFF;
+}
+
+.wthrContent .weatherItem .weatherWidget .feelsLike div:last-child {
+    font-family: Roboto, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    color: #FFF;
+}
+
+.wthrContent .weatherItem .weatherWidget .todayIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22.5rem;
+    height: 22.5rem;
+}
+
+.wthrContent .weatherItem .lifeIndex {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.125rem;
+}
+
+.wthrContent .weatherItem .lifeIndex div {
+    font-family: Pretendard-Regular, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    display: flex;
+    align-items: flex-start;
+    padding: 2.25rem 3.75rem 2.25rem 6.9rem;
+    color: #ADB5BD;
+    border-radius: 3.75rem;
+    background-color: rgb(255 255 255 / 20%);
+    background-repeat: no-repeat;
+    background-position: center left 3.75rem;
+    background-size: 1.875rem;
+    gap: 1.125rem;
+}
+
+.lifeIndex div:first-child {
+    background-image: url("/resources/ict/dglib/nonTouch/img/life/dust.svg");
+}
+
+.lifeIndex div:last-child {
+    background-image: url("/resources/ict/dglib/nonTouch/img/life/food.svg");
+}
+
+.wthrContent .weatherItem .lifeIndex div span{
+    font-family: Pretendard-SemiBold, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    color: #FFF;
+}
+
+.wthrContent .weeklyForecast {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3.125rem;
+}
+
+.wthrContent .weeklyForecast .weeklyTitle {
+    font-family: Pretendard-SemiBold ,sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.05625rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.wthrContent .weeklyForecast .weeklyList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.wthrContent .weeklyForecast .weeklyList .weeklyItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    padding: 3.125rem 0;
+    border: 2px solid rgb(255 255 255 / 50%);
+    border-radius: 1.875rem;
+    background: linear-gradient(180deg, rgb(255 255 255 / 15%) 0%, rgb(255 255 255 / 0%) 100%), rgb(255 255 255 / 5%);
+    gap: 2.5rem;
+}
+
+.wthrContent .weeklyForecast .weeklyList .weeklyItem img {
+    flex-shrink: 0;
+    width: 5.625rem;
+    height: 5.625rem;
+}
+
+.wthrContent .weeklyForecast .weeklyList .weeklyItem .weeklyInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.625rem;
+}
+
+.wthrContent .weeklyForecast .weeklyList .weeklyItem .weeklyInfo div:first-child {
+    font-family: Pretendard-Regular, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ADB5BD;
+}
+
+.wthrContent .weeklyForecast .weeklyList .weeklyItem .weeklyInfo div:last-child {
+    font-family: Roboto, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    color: #FFF;
+}

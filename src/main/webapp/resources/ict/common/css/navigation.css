@@ -1,0 +1,332 @@
+.waveBottomArea {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.back {
+    position: absolute;
+    top: -47rem;
+    left: -0.3rem;
+    width: 4rem;
+    height: 7.5rem;
+    background: url("/resources/ict/common/img/wave/back.png") no-repeat center center;
+    background-size: contain;
+}
+
+.waveBottomArea .userState {
+    display: flex;
+    align-items: center;
+    margin-right: 1.25rem;
+    margin-bottom: 0.94rem;
+    padding: 0.5625rem 1.875rem 0.5625rem 0.5625rem;
+    border-radius: 3.125rem;
+    background: #FFF;
+    gap: 0.75rem;
+}
+
+.waveBottomArea .userState img {
+    width: 3.25rem;
+    height: 3.25rem;
+}
+
+.waveBottomArea .userState a {
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.03rem;
+    color: #121212;
+}
+
+.waveBottomArea .userState a span {
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: normal;
+    margin-right: 0.5rem;
+    letter-spacing: -0.03rem;
+    color: #191F28;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.logout {
+    width: 2.25rem;
+    height: 2.25rem;
+    border: none;
+    background: url("/resources/ict/common/img/wave/logout.svg") no-repeat center center;
+}
+
+.waveBottomArea .goToAI {
+    position: absolute;
+    bottom: 9.22rem;
+    left: 50%;
+    width: 5.625rem;
+    height: 5.625rem;
+    transform: translateX(-50%);
+    background: url("/resources/ict/common/img/wave/ai.svg") no-repeat center center;
+    background-size: cover;
+}
+
+.waveBottomArea .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 8.75rem;
+    background-image: url("/resources/ict/common/img/wave/wave.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+
+.waveBottomArea .navigation a {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 9.10714rem;
+    padding-top: 4.48rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: #8B95A1;
+    background-repeat: no-repeat;
+    background-position: center top 0.73rem;
+    background-size: 3rem;
+    gap: 0.75rem;
+}
+
+.waveBottomArea .navigation a.active {
+    font-family: PretendardSemiBold, sans-serif;
+    position: relative;
+    z-index: 1;
+    color: #3B68FF;
+}
+
+.waveBottomArea .navigation a.active::after {
+    position: absolute;
+    z-index: -1;
+    bottom: 1rem;
+    left: 50%;
+    width: 100%;
+    height: 30%;
+    content: "";
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgb(59 104 255 / 30%);
+    filter: blur(1.5625rem);
+}
+
+.waveBottomArea .navigation #index {
+    background-image: url("/resources/ict/common/img/wave/home.svg");
+}
+
+.waveBottomArea .navigation #notice {
+    background-image: url("/resources/ict/common/img/wave/notice.svg");
+}
+
+.waveBottomArea .navigation #notice.active {
+    background-image: url("/resources/ict/common/img/wave/activeNotice.svg");
+}
+
+.waveBottomArea .navigation #information {
+    margin-right: 9.11rem;
+    background-image: url("/resources/ict/common/img/wave/information.svg");
+}
+
+.waveBottomArea .navigation #information.active {
+    background-image: url("/resources/ict/common/img/wave/activeInformation.svg")
+}
+
+.waveBottomArea .navigation #facility {
+    background-image: url("/resources/ict/common/img/wave/facility.svg");
+}
+
+.waveBottomArea .navigation #facility.active {
+    background-image: url("/resources/ict/common/img/wave/activeFacility.svg");
+}
+
+.waveBottomArea .navigation #event {
+    background-image: url("/resources/ict/common/img/wave/event.svg");
+}
+
+.waveBottomArea .navigation #event.active {
+    background-image: url("/resources/ict/common/img/wave/activeEvent.svg");
+}
+
+.waveBottomArea .navigation #course {
+    background-image: url("/resources/ict/common/img/wave/courseList.svg");
+}
+
+.waveBottomArea .navigation #course.active {
+    background-image: url("/resources/ict/common/img/wave/activceCourseList.svg");
+}
+
+.waveBottomArea .navigation #search {
+    background-image: url("/resources/ict/common/img/wave/search.svg");
+}
+
+.waveBottomArea .navigation #search.active {
+    background-image: url("/resources/ict/common/img/wave/activeSearch.svg");
+}
+
+.waveBottomArea .navigation #chart {
+    background-image: url("/resources/ict/common/img/wave/chart.svg");
+}
+
+.waveBottomArea .navigation #chart.active {
+    background-image: url("/resources/ict/common/img/wave/activeChart.svg");
+}
+
+.waveBottomArea .navigation #custom {
+    margin-right: 9.11rem;
+    background-image: url("/resources/ict/common/img/wave/custom.svg");
+}
+
+.waveBottomArea .navigation #custom.active {
+    background-image: url("/resources/ict/common/img/wave/activeCustom.svg")
+}
+
+.waveBottomArea .navigation #librarian {
+    background-image: url("/resources/ict/common/img/wave/librarian.svg");
+}
+
+.waveBottomArea .navigation #librarian.active {
+    background-image: url("/resources/ict/common/img/wave/activeLibrarian.svg");
+}
+
+.waveBottomArea .navigation #bigData {
+    background-image: url("/resources/ict/common/img/wave/bigData.svg");
+}
+
+.waveBottomArea .navigation #bigData.active {
+    background-image: url("/resources/ict/common/img/wave/activeBigdata.svg");
+}
+
+.waveBottomArea .navigation #myPage {
+    background-image: url("/resources/ict/common/img/wave/myPage.svg");
+}
+
+.waveBottomArea .navigation #myPage.active {
+    background-image: url("/resources/ict/common/img/wave/activeMyPage.svg");
+}
+
+.waveBottomArea .scrollDown {
+    font-family: PretendardRegular, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: normal;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3.9rem;
+    margin-left: 3.75rem;
+    padding-right: 3.87rem;
+    text-align: center;
+    letter-spacing: -0.03rem;
+    color: #FFF;
+    background: url("/resources/ict/common/img/wave/scrollDown.png") no-repeat center right;
+    background-size: 2.75rem;
+}
+
+.bfController {
+    display: flex;
+    width: 100%;
+    height: 4.21875rem;
+    background: #191F28;
+}
+
+.reset {
+    font-family: PretendardRegular, sans-serif;
+    font-size: 1.375rem;
+    font-style: normal;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8.75rem;
+    height: 100%;
+    letter-spacing: -0.0275rem;
+    color: #FFF;
+    background: #333D4B;
+}
+
+.windowController {
+    font-family: PretendardRegular, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: normal;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 3.9rem;
+    margin-left: 3.9rem;
+    letter-spacing: -0.03rem;
+    color: #FFF;
+    gap: 1.12rem;
+}
+
+.windowController div:nth-child(1),
+.windowController div:nth-child(3) {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+.windowController div:nth-child(1) {
+    background-image: url("/resources/ict/common/img/wave/zoomOut.png");
+}
+
+.windowController div:nth-child(3) {
+    background-image: url("/resources/ict/common/img/wave/zoom.png");
+}
+
+.magnifier {
+    font-family: PretendardRegular, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3.75rem;
+    margin-left: 4.02rem;
+    padding-right: 3.87rem;
+    text-align: center;
+    letter-spacing: -0.03rem;
+    color: #FFF;
+    background-image: url("/resources/ict/common/img/wave/magnifier.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 2.75rem;
+}
+
+.scrollDown::after, .windowController::after {
+    position: absolute;
+    top: 50%;
+    right: -3.9rem;
+    width: 0.125rem;
+    height: 1.5625rem;
+    content: '';
+    transform: translateY(-50%);
+    border-radius: 0.0625rem;
+    background: #6B7684;
+}

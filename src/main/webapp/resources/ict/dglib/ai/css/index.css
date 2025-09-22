@@ -1,0 +1,22 @@
+.container {
+    animation: flowBackground 15s ease-in-out infinite alternate;
+    background: radial-gradient(26.62% 62.75% at 3.31% 0%, rgb(255 51 102 / 20%) 0%, rgb(255 51 102 / 0%) 100%),
+    radial-gradient(42.71% 67.41% at 4.19% 59.19%, rgb(107 255 53 / 25%) 0%, rgb(107 255 53 / 0%) 100%),
+    radial-gradient(30.51% 25.81% at 81.87% 17.58%, rgb(139 234 255 / 30%) 0%, rgb(139 234 255 / 0%) 100%),
+    linear-gradient(176deg, #6B7BD6 25.05%, #2C3371 96.01%);
+    background-size: 200% 200%; /* 배경 크게 */
+}
+
+@keyframes flowBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}

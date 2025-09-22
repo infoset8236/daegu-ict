@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    background-image: url("/resources/ict/dglib/roompad/img/bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+}

@@ -1,0 +1,40 @@
+.btchHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 120rem;
+    height: 8.75rem;
+    padding: 0 3.75rem;
+}
+
+.btchHeader .btchHeaderL {
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    color: #FFF;
+}
+
+.btchHeader .btchHeaderR {
+    font-family: Pretendard-ExtraBold, sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #8B95A1;
+}
+
+.rtnContainer {
+    position: relative;
+    width: 120rem;
+    height: 100vh;
+    background: linear-gradient(105deg, rgb(18 22 29 / 50%) 10.68%, rgb(6 32 70 / 50%) 50.29%, rgb(18 22 29 / 50%) 89.9%),
+    linear-gradient(90deg, #12161D 0%, rgb(6 32 70 / 50%) 50%, #12161D 100%),
+    linear-gradient(0deg, #4E1A37 0%, #1D1D35 100%);
+}

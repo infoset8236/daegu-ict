@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!-- 기본 페이지 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- 로깅 설정 (Log4j2 자체 설정 사용 권장) -->
+    <!-- log4j2.xml 은 자동 로드되므로 별도 Listener 불필요 -->
+    <!-- 필요시 context-param 으로 경로만 명시 -->
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>classpath:log4j2.xml</param-value>
+    </context-param>
+
+    <!-- 필터: 순서 중요 -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>XSS</filter-name>
+        <filter-class>kr.co.sj.framework.filter.CrossScriptingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>XSS</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CSRFTokenAppenderFilter</filter-name>
+        <filter-class>kr.co.sj.framework.filter.CSRFTokenAppenderFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CSRFTokenAppenderFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CookieAttributeFilter</filter-name>
+        <filter-class>kr.co.sj.framework.filter.CookieAttributeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CookieAttributeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Spring DispatcherServlet -->
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                /WEB-INF/config/spring/dispatcherServlet.xml
+                /WEB-INF/config/spring/dataSource-config.xml
+                /WEB-INF/config/spring/tiles-config.xml
+                /WEB-INF/config/spring/exception-config.xml
+                /WEB-INF/config/spring/storage-config.xml
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>spring.profiles.default</param-name>
+            <param-value>localServer</param-value>
+            <!-- localServer, devServer 등으로 교체 가능 -->
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <!-- 커스텀 태그 라이브러리 -->
+    <jsp-config>
+        <taglib>
+            <taglib-uri>/whalesoft/cmsTag</taglib-uri>
+            <taglib-location>/WEB-INF/config/tld/cmsTag.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/whalesoft/boardTag</taglib-uri>
+            <taglib-location>/WEB-INF/config/tld/boardTag.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <!-- 에러 페이지 매핑 -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/views/common/exception/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/common/exception/notFound.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/WEB-INF/views/common/exception/notFound.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/common/exception/error.jsp</location>
+    </error-page>
+
+    <!-- 세션 설정 (분 단위) -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+</web-app>

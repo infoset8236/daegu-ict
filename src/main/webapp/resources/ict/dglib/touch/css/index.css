@@ -1,0 +1,125 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/resources/ict/dglib/touch/img/index/bg.png");
+}
+
+.welcomeMessage {
+    display: flex;
+    flex-direction: column;
+    margin-top: 18.13rem;
+    margin-bottom: 12.31rem;
+    transform: translateY(20px);
+    animation: fade-slide-in 1.2s ease-out forwards;
+    opacity: 0;
+    gap: 1.5rem;
+}
+
+@keyframes fade-slide-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcomeMessage div:first-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 4.625rem;
+    font-style: normal;
+    line-height: 5.25rem;
+    text-align: center;
+    letter-spacing: -0.185rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.welcomeMessage div:first-child span {
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 4.625rem;
+    font-style: normal;
+    line-height: 5.25rem;
+    text-align: center;
+    letter-spacing: -0.11563rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.welcomeMessage div:last-child {
+    font-family: Dinbol, sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.62rem;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 13.75rem;
+    height: 13.75rem;
+    transform: translateY(30px);
+    animation: fade-in-up 0.8s ease forwards;
+    opacity: 0;
+    border: 2px solid #FFF;
+    border-radius: 4.375rem;
+    background: linear-gradient(
+            180deg,
+            rgb(255 255 255 / 20%) 0%,
+            rgb(255 255 255 / 0%) 100%
+    ),
+    rgb(255 255 255 / 50%);
+    backdrop-filter: blur(15px);
+    gap: 1.5rem;
+}
+
+.menu a img {
+    width: 3.75rem;
+    height: 3.75rem;
+}
+
+.menu a div:last-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 1.75rem;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    color: #4563C6;
+}
+
+.menu a:nth-child(1) { animation-delay: 0.1s; }
+.menu a:nth-child(2) { animation-delay: 0.2s; }
+.menu a:nth-child(3) { animation-delay: 0.3s; }
+.menu a:nth-child(4) { animation-delay: 0.4s; }
+.menu a:nth-child(5) { animation-delay: 0.5s; }
+.menu a:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu a:hover {
+    animation-name: bounce, fade-in-up;
+    animation-duration: 0.6s, 0.8s;
+    animation-fill-mode: none, forwards;
+}
