@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    function initNoticeSlider(selector, itemClass) {
+    function initEtiquetteSlider(selector, itemClass) {
         $(selector).each(function () {
             const $slider = $(this);
             const $items = $slider.children();
@@ -40,7 +40,7 @@ $(document).ready(function () {
             $slider.slick({
                 slidesToShow: 1,
                 arrows: false,
-                autoplay: true,
+                autoplay: false,
                 autoplaySpeed: 8000,
                 dots: false,
                 infinite: true,
@@ -51,6 +51,6 @@ $(document).ready(function () {
     }
 
     // 호출
-    initNoticeSlider('.noticeTopList', 'noticeTopListItem');
-    initNoticeSlider('.noticeBottomList', 'noticeBottomListItem');
+    initEtiquetteSlider('.etiquetteTopList', 'etiquetteTopListItem');
+    initEtiquetteSlider('.etiquetteBottomList', 'etiquetteBottomListItem');
 });

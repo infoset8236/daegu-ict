@@ -16,7 +16,7 @@
     top: 600px;
     left: 48px;
     letter-spacing: -0.8px;
-    color: #FFF;
+    color: #191F28;
 }
 
 #container video {
@@ -35,48 +35,75 @@
 
 .top {
     height: 1299px;
+
 }
 
-.noticeTopList, .noticeBottomList {
+.etiquetteTopList, .etiquetteBottomList {
     height: 100%;
 }
 
 .wrapper {
     justify-content: center;
-    padding: 100px 0;
 }
 
-.wrapper .noticeTopListItem:nth-child(3n + 1) {
-    margin-top: 604px;
-    margin-right: 292px;
+.wrapper .etiquetteTopListItem:nth-child(3n + 1) {
+    margin-top: 733px;
+    margin-right: 132px;
 }
 
-.wrapper .noticeTopListItem:nth-child(3n + 2) {
-    margin-top: 430px;
-    margin-right: 204px;
+.wrapper .etiquetteTopListItem:nth-child(3n + 1) .etiquetteContent div:first-child {
+    margin-top: 6.3px;
 }
 
-.wrapper .noticeTopListItem:nth-child(3n) {
-    margin-top: 43px;
+.wrapper .etiquetteTopListItem:nth-child(3n + 2) {
+    margin-top: 477px;
+    margin-right: 40px;
 }
 
-.wrapper .noticeBottomListItem:nth-child(3n + 1) {
-    margin-top: 883px;
-    margin-right: 292px;
+.wrapper .etiquetteTopListItem:nth-child(3n + 2) .etiquetteImg {
+    margin-top: 140px;
 }
 
-.wrapper .noticeBottomListItem:nth-child(3n + 2) {
-    margin-top: 559px;
-    margin-right: 204px;
+
+.wrapper .etiquetteTopListItem:nth-child(3n) {
+    margin-top: 170px;
 }
 
-.wrapper .noticeBottomListItem:nth-child(3n) {
-    margin-top: 44px;
+.wrapper .etiquetteTopListItem:nth-child(3n) .etiquetteContent div:first-child {
+    margin-top: 30px;
 }
 
-.noticeTopListItem, .noticeBottomListItem {
+
+.wrapper .etiquetteBottomListItem:nth-child(3n + 1) {
+    margin-top: 1010px;
+    margin-right: 132px;
+}
+
+.wrapper .etiquetteBottomListItem:nth-child(3n + 1) .etiquetteContent div:first-child {
+    margin-top: 77px;
+}
+
+
+.wrapper .etiquetteBottomListItem:nth-child(3n + 2) {
+    margin-top: 649px;
+    margin-right: 40px;
+}
+
+.wrapper .etiquetteBottomListItem:nth-child(3n + 2) .etiquetteImg {
+    margin-top: 86px;
+}
+
+.wrapper .etiquetteBottomListItem:nth-child(3n) {
+    margin-top: 200px;
+}
+
+.wrapper .etiquetteBottomListItem:nth-child(3n) .etiquetteImg {
+    margin-top: 33px;
+}
+
+.etiquetteTopListItem, .etiquetteBottomListItem {
     display: flex;
-    gap: 64px;
+    gap: 70px;
 }
 
 @keyframes slideUpFade {
@@ -90,69 +117,116 @@
     }
 }
 
-.noticeTopListItem, .noticeTopListItem {
+.etiquetteTopListItem, .etiquetteTopListItem {
     opacity: 0;
 }
 
-.noticeTopListItem.animate,
-.noticeBottomListItem.animate {
+.etiquetteTopListItem.animate,
+.etiquetteBottomListItem.animate {
     animation: slideUpFade 0.8s ease forwards;
 }
 
-.noticeTopListItem.animate:nth-child(3n + 1),
-.noticeBottomListItem.animate:nth-child(3n + 1)
+.etiquetteTopListItem.animate:nth-child(3n + 1),
+.etiquetteBottomListItem.animate:nth-child(3n + 1)
 {
     animation-delay: 0s;
 }
 
-.noticeTopListItem.animate:nth-child(3n + 2),
-.noticeBottomListItem.animate:nth-child(3n + 2){
+.etiquetteTopListItem.animate:nth-child(3n + 2),
+.etiquetteBottomListItem.animate:nth-child(3n + 2){
     animation-delay: 0.2s;
 }
 
-.noticeTopListItem.animate:nth-child(3n),
-.noticeBottomListItem.animate:nth-child(3n) {
+.etiquetteTopListItem.animate:nth-child(3n),
+.etiquetteBottomListItem.animate:nth-child(3n) {
     animation-delay: 0.4s;
 }
 
-.noticeImg {
-    width: 320px;
-    height: 452px;
-    border-radius: 16.622px;
-    box-shadow: 20.777px 41.554px 83.109px 0 rgba(0, 0, 0, 0.20);
+.etiquetteImg {
+    width: 240px;
+    height: 430px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-.noticeContent {
+.etiquetteContent {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 32px;
 }
 
-.noticeContent div:first-child {
-    font-family: OswaldExtraLight, sans-serif;
-    font-size: 80px;
-    font-style: normal;
-    line-height: 110%;
-    letter-spacing: -2px;
-    color: #FFF;
-}
-
-.noticeContent div:last-child {
+.etiquetteContent div:first-child {
     font-family: PretendardSemiBold, sans-serif;
-    font-size: 50px;
+    font-size: 68px;
     font-style: normal;
     line-height: 140%;
-    display: -webkit-box;
-    overflow: hidden;
-    align-self: stretch;
-    width: 334px;
-    letter-spacing: -1.25px;
-    text-overflow: ellipsis;
-    color: #FFF;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    width: 550px;
+    letter-spacing: -1.7px;
+    color: #191F28;
+}
+
+.etiquetteContent div:last-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 42px;
+    font-style: normal;
+    line-height: 140%;
+    width: 550px;
+    letter-spacing: -1.05px;
+    color: #6B7684;
 }
 
 .bottom {
     height: 1580px;
 }
+
+
+/* top 리스트 각 항목 배경 */
+.etiquetteTopList .etiquetteTopListItem:nth-child(1) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person1.png');
+}
+
+.etiquetteTopList .etiquetteTopListItem:nth-child(2) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person2.png');
+}
+
+.etiquetteTopList .etiquetteTopListItem:nth-child(3) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person3.png');
+}
+
+.etiquetteTopList .etiquetteTopListItem:nth-child(4) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person4.png');
+}
+
+.etiquetteTopList .etiquetteTopListItem:nth-child(5) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person5.png');
+}
+
+.etiquetteTopList .etiquetteTopListItem:nth-child(6) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person6.png');
+}
+
+/* bottom 리스트 각 항목 배경 */
+.etiquetteBottomList .etiquetteBottomListItem:nth-child(1) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person4.png');
+}
+
+.etiquetteBottomList .etiquetteBottomListItem:nth-child(2) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person5.png');
+}
+
+.etiquetteBottomList .etiquetteBottomListItem:nth-child(3) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person6.png');
+}
+
+.etiquetteBottomList .etiquetteBottomListItem:nth-child(4) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person1.png');
+}
+
+.etiquetteBottomList .etiquetteBottomListItem:nth-child(5) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person2.png');
+}
+
+.etiquetteBottomList .etiquetteBottomListItem:nth-child(6) .etiquetteImg {
+    background-image: url('/resources/ict/dglib/media/img/stairs/person3.png');
+}
+
