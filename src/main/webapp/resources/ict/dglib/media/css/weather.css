@@ -11,7 +11,6 @@
 .btchHeader .btchHeaderL {
     font-family: Pretendard-Medium, sans-serif;
     font-size: 1.375rem;
-    font-weight: 500;
     font-style: normal;
     line-height: normal;
     text-align: center;
@@ -21,7 +20,6 @@
 .btchHeader .btchHeaderR {
     font-family: Pretendard-ExtraBold, sans-serif;
     font-size: 1rem;
-    font-weight: 800;
     font-style: normal;
     line-height: normal;
     text-align: center;
@@ -78,7 +76,6 @@
 .wthrContent .weatherItem .weatherWidget .todayInfo div:first-child {
     font-family: Pretendard-ExtraBold,sans-serif;
     font-size: 2.25rem;
-    font-weight: 800;
     font-style: normal;
     line-height: normal;
     letter-spacing: 0.18rem;
@@ -105,7 +102,6 @@
 .wthrContent .weatherItem .weatherWidget .todayTemp {
     font-family: Roboto, sans-serif;
     font-size: 12rem;
-    font-weight: 500;
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.48rem;
@@ -123,9 +119,8 @@
 }
 
 .wthrContent .weatherItem .weatherWidget .feelsLike div:first-child {
-    font-family: Pretendard-Medium, sans-serif;
+    font-family: PretendardMedium, sans-serif;
     font-size: 2.25rem;
-    font-weight: 500;
     font-style: normal;
     line-height: normal;
     color: #FFF;
@@ -134,7 +129,6 @@
 .wthrContent .weatherItem .weatherWidget .feelsLike div:last-child {
     font-family: Roboto, sans-serif;
     font-size: 2.25rem;
-    font-weight: 600;
     font-style: normal;
     line-height: normal;
     color: #FFF;
@@ -155,9 +149,8 @@
 }
 
 .wthrContent .weatherItem .lifeIndex div {
-    font-family: Pretendard-Regular, sans-serif;
+    font-family: PretendardRegular, sans-serif;
     font-size: 2.25rem;
-    font-weight: 400;
     font-style: normal;
     line-height: normal;
     display: flex;
@@ -183,7 +176,6 @@
 .wthrContent .weatherItem .lifeIndex div span{
     font-family: Pretendard-SemiBold, sans-serif;
     font-size: 2.25rem;
-    font-weight: 600;
     font-style: normal;
     line-height: normal;
     color: #FFF;
@@ -199,7 +191,6 @@
 .wthrContent .weeklyForecast .weeklyTitle {
     font-family: Pretendard-SemiBold ,sans-serif;
     font-size: 2.25rem;
-    font-weight: 600;
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.05625rem;
@@ -240,9 +231,8 @@
 }
 
 .wthrContent .weeklyForecast .weeklyList .weeklyItem .weeklyInfo div:first-child {
-    font-family: Pretendard-Regular, sans-serif;
+    font-family: PretendardRegular, sans-serif;
     font-size: 1.5rem;
-    font-weight: 400;
     font-style: normal;
     line-height: normal;
     text-align: center;
@@ -253,7 +243,6 @@
 .wthrContent .weeklyForecast .weeklyList .weeklyItem .weeklyInfo div:last-child {
     font-family: Roboto, sans-serif;
     font-size: 2.25rem;
-    font-weight: 500;
     font-style: normal;
     line-height: normal;
     text-align: center;
