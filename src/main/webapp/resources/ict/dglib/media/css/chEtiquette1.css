@@ -19,9 +19,8 @@
 }
 
 .panelHeader .panelTitle .panelTitleEn{
-    font-family:  Pretendard-ExtraBold, sans-serif;;
+    font-family:  PretendardExtraBold, sans-serif;;
     font-size: 1rem;
-    font-weight: 800;
     font-style: normal;
     line-height: normal;
     text-align: center;
@@ -31,9 +30,8 @@
 }
 
 .panelHeader .panelTitle .panelTitleKo{
-    font-family: Pretendard-Medium, sans-serif;
+    font-family: PretendardMedium, sans-serif;
     font-size: 1.375rem;
-    font-weight: 500;
     font-style: normal;
     line-height: normal;
     text-align: center;ahdmatext-align
@@ -41,9 +39,8 @@
 }
 
 .panelPagination > span{
-    font-family: Pretendard-ExtraBold, sans-serif;
+    font-family: PretendardExtraBold, sans-serif;
     font-size: 1.5rem;
-    font-weight: 800;
     line-height: normal;
     text-align: center;
     letter-spacing: 0.3rem;

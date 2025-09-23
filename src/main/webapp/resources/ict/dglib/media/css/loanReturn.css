@@ -9,9 +9,8 @@
 }
 
 .btchHeader .btchHeaderL {
-    font-family: Pretendard-Medium, sans-serif;
+    font-family: PretendardMedium, sans-serif;
     font-size: 1.375rem;
-    font-weight: 500;
     font-style: normal;
     line-height: normal;
     text-align: center;
@@ -19,9 +18,8 @@
 }
 
 .btchHeader .btchHeaderR {
-    font-family: Pretendard-ExtraBold, sans-serif;
+    font-family: PretendardExtraBold, sans-serif;
     font-size: 1rem;
-    font-weight: 800;
     font-style: normal;
     line-height: normal;
     text-align: center;
@@ -37,4 +35,158 @@
     background: linear-gradient(105deg, rgb(18 22 29 / 50%) 10.68%, rgb(6 32 70 / 50%) 50.29%, rgb(18 22 29 / 50%) 89.9%),
     linear-gradient(90deg, #12161D 0%, rgb(6 32 70 / 50%) 50%, #12161D 100%),
     linear-gradient(0deg, #4E1A37 0%, #1D1D35 100%);
+}
+
+.rtnContainer .rtnContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9.15rem;
+}
+
+.rtnContainer .rtnContent .rtnSchedule {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4.05rem;
+}
+
+.rtnContainer .rtnContent .rtnSchedule .rtnScheduleTitle {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 1.875rem;
+    font-style: normal;
+    line-height: 100%; /* 1.875rem */
+    text-align: center;
+    letter-spacing: -0.05625rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnSchedule .rtnClock {
+    width: 24.75rem;
+    height: 24.75rem;
+    background: url("/resources/ict/dglib/media/img/weather/clock_bg.png") center no-repeat;
+    aspect-ratio: 1/1;
+}
+
+#gc {
+    width: 24.75rem;
+    height: 24.75rem;
+}
+
+.rtnContainer .rtnContent .rtnSchedule .rtnDateTxt {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 1.875rem;
+    font-style: normal;
+    line-height: 100%; /* 1.875rem */
+    text-align: center;
+    letter-spacing: -0.0375rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnSchedule .rtnTime {
+    font-family: Roboto;
+    font-size: 6.25rem;
+    font-style: normal;
+    line-height: 100%; /* 6.25rem */
+    text-align: center;
+    letter-spacing: 0.4375rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnToday {
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3.75rem;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayTitle {
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 4.6875rem;
+    font-style: normal;
+    line-height: 150%; /* 7.03125rem */
+    letter-spacing: -0.11719rem;
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem{
+    display: flex;
+    align-items: center;
+    gap: 4.375rem;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnLabel{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 22.5rem;
+    height: 16.25rem;
+    border-radius: 1.875rem;
+    background: rgb(255 255 255 / 20%);
+    gap: 1.25rem;
+    backdrop-filter: blur(50px);
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnLabel .labelKo{
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    line-height: 2.5rem; /* 100% */
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnLabel .labelEn{
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 1.875rem;
+    font-style: normal;
+    line-height: normal;
+    color: #8B95A1;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnDate{
+    display: flex;
+    gap: 2.875rem;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnDate .dateMon,
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnDate .dateD{
+    display: flex;
+    align-items: baseline;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnDate .dateNum{
+    font-family: Roboto, sans-serif;
+    font-size: 14.375rem;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnItem .rtnDate .dateTxt{
+    font-family: Pretendard-Medium, sans-serif;
+    font-size: 3.125rem;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    color: #FFF;
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnReturn .rtnLabelReturn{
+    background: rgb(254 201 98 / 20%);
+}
+
+.rtnContainer .rtnContent .rtnToday .rtnTodayContent .rtnReturn .rtnDateReturn .dateNum{
+    color: #FEC962;
 }

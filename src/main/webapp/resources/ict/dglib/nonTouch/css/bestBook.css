@@ -107,7 +107,6 @@
 .book div:nth-child(5), .book div:nth-child(6) {
     font-family: PretendardMedium, sans-serif;
     font-size: 1.5rem;
-    font-weight: 500;
     font-style: normal;
     line-height: 140%;
     overflow: hidden;
