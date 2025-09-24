@@ -1,0 +1,277 @@
+.container {
+    display: flex;
+    background-image: url("/resources/ict/dglib/roompad/img/bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 2.81rem;
+    background: #0C0E34;
+    box-shadow: 0 0 40px 0 rgb(0 0 0 / 40%), 40px 0 80px 0 rgb(0 0 0 / 20%);
+}
+
+.library {
+    font-family: Paperlogy-Medium, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 2.34rem;
+    padding: 1.25rem 1.875rem;
+    color: #FFF;
+}
+.todayWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6875rem;
+}
+.caption {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.0225rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.roomClock {
+    position: relative;
+    width: 10.31256rem;
+    height: 10.3125rem;
+    background-image: url("/resources/ict/dglib/roompad/img/clock.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#gc {
+    width: 10.31256rem;
+    height: 10.31256rem;
+}
+.dtWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+.dtWrap .dtDate{
+    color: #FFF;
+    text-align: center;
+    font-family: PretendardRegular, sans-serif;
+    font-size: 0.6875rem;
+    font-style: normal;
+    line-height: 100%; /* 0.6875rem */
+    letter-spacing: -0.01375rem;
+    text-transform: uppercase;
+}
+.dtWrap .dtTime{
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto-Light, sans-serif;
+    font-size: 2.375rem;
+    font-style: normal;
+    line-height: 100%; /* 2.375rem */
+    letter-spacing: 0.16625rem;
+    text-transform: uppercase;
+}
+
+.btnNav{
+    display: flex;
+    padding: 0.46875rem;
+    width: 14.1rem;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 0.46875rem;
+    border-radius: 2.34375rem;
+    height: 3rem;
+    border: 1px solid #FFF;
+    color: #FFF;
+    text-align: center;
+    font-family: PretendardBold, sans-serif;
+    font-size: 0.9375rem;
+    font-style: normal;
+    line-height: 100%; /* 0.9375rem */
+    letter-spacing: -0.02813rem;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+}
+
+
+
+
+.myResCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+.myResCont .myResHead{
+    display: flex;
+    width: 39.375rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+.myResCont .myResHead .myResTitEn{
+    color: rgba(255, 255, 255, 0.50);
+    text-align: center;
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.625rem;
+    font-style: normal;
+    line-height: 100%; /* 0.625rem */
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+}
+.myResCont .myResHead .myResTitKo{
+    color:#FFF;
+    text-align: center;
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 2.25rem;
+    font-style: normal;
+    line-height: 100%; /* 2.25rem */
+    letter-spacing: -0.0675rem;
+    text-transform: uppercase;
+}
+
+.myResList{
+    display: flex;
+    width: 32.15625rem;
+    margin: 0 auto;
+}
+.myResList .myResItem{
+    display: flex;
+    width: 10rem;
+    padding: 1.875rem 1.5625rem 1.90625rem 1.5625rem;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.10);
+    margin-right: 1rem;
+}
+.myResList .myResItem .myResSum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #FFFFFF1A;
+}
+.myResList .myResItem .myResSum .myResDate{
+    color: #FFF;
+    text-align: center;
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    line-height: 100%; /* 0.75rem */
+    letter-spacing: -0.015rem;
+    text-transform: uppercase;
+}
+.myResList .myResItem .myResSum .myResSts{
+    width: 3.125rem;
+    height: 3.125rem;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.5625rem;
+    border-radius: 100%;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.01406rem;
+}
+.myResList .myResItem .myResSum .myResSts.stsCancel{
+    background-color: #6B7684;
+}
+.myResList .myResItem .myResSum .myResSts.stsCheckIn{
+    background-color: #0372FF;
+}
+.myResList .myResItem .myResSum .myResSts.stsWait{
+    background-color: #029951;
+}
+.myResList .myResItem .myResSum .myResUsr{
+    overflow: hidden;
+    color: #FFF;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.0375rem;
+}
+
+.myResList .myResItem .myResDtl{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+.myResList .myResItem .myResDtl .myResInfo{
+    color: #FFF;
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 0.625rem;
+    font-style: normal;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.myResList .myResItem .myResDtl .myResInfo > span{
+    color: #ADB5BD;
+    text-align: center;
+    font-family: PretendardMedium, sans-serif;
+    font-size: 0.625rem;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.01563rem;
+}
+
+
+
+/* dots 영역 위치, 정렬 */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    bottom: -1.78rem;
+}
+
+/* li 초기화 */
+.slick-dots li {
+    width: 0.4375rem;
+    height: 0.4375rem;
+    aspect-ratio: 1/1;
+}
+
+/* dot 버튼 공통 스타일 */
+.slick-dots li button {
+    width: 0.4375rem;
+    height: 0.4375rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #4E5968; /* 비활성화 시 파란색 */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* 활성화된 dot */
+.slick-dots li.slick-active button {
+    background-color: #FFF;
+}
+.slick-dots li button::before{
+    display: none;
+}

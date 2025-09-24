@@ -1,0 +1,143 @@
+#container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 0;
+}
+
+.header {
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    line-height: 120%;
+    position: absolute;
+    z-index: 1;
+    top: 600px;
+    left: 48px;
+    letter-spacing: -0.8px;
+    color: #FFF;
+}
+
+#container video {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top, .bottom {
+    z-index: 1;
+    width: 100%;
+}
+
+.top {
+    height: 1299px;
+    border: 1px solid red;
+}
+
+.topEventSlide, .bottomEventSlide {
+    height: 100%;
+    border: 1px solid blue
+}
+
+.topEventSlideItem {
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+}
+
+.index {
+    font-family: OswaldExtraLight, sans-serif;
+    font-size: 92px;
+    font-style: normal;
+    line-height: 100%;
+    margin-top: 670px;
+    margin-left: 50px;
+    letter-spacing: -2.3px;
+    color: #FFF;
+}
+
+.title {
+    font-family: PretendardBold, sans-serif;
+    font-size: 100px;
+    font-style: normal;
+    line-height: 140%;
+    display: -webkit-box;
+    overflow: hidden;
+    width: 1240px;
+    margin-left: 200px;
+    letter-spacing: -2.5px;
+    text-overflow: ellipsis;
+    color: #FFF;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.bottom {
+    height: 1580px;
+    border: 1px solid red;
+}
+
+.bottomEventSlideItem {
+    justify-content: space-between;
+}
+
+.timeAadPlace {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1092px;
+    margin-left: 200px;
+    gap: 34px;
+}
+
+.timeAadPlace div:first-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 84px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.1px;
+    color: #FFF;
+}
+
+.timeAadPlace div:last-child {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 84px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.1px;
+    color: #FFF;
+}
+
+.date {
+    position: relative;
+    width: 312.81px;
+    height: 390.07px;
+    margin-top: 165px;
+    margin-right: 283px;
+    background-image: url("/resources/ict/dglib/media/img/stairs/bar.svg");
+    background-repeat: no-repeat;
+}
+
+.date div {
+    font-family: "Poltawski Nowy", sans-serif;
+    font-size: 200px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 140%;
+    position: absolute;
+    letter-spacing: -5px;
+    color: #FFF;
+}
+
+.date div:first-child {
+    top: -55px;
+    left: -17px;
+}
+
+.date div:last-child {
+    right: -84px;
+    bottom: -40px;
+}
