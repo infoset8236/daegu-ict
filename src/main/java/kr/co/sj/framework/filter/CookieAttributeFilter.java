@@ -14,7 +14,7 @@ public class CookieAttributeFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-        res.setHeader("Set-Cookie", "locale=pt-BR; HttpOnly; Secure; SameSite=Strict;");
+        res.addHeader("Set-Cookie", "locale=pt-BR; HttpOnly; Secure; SameSite=Strict;");
         chain.doFilter(req, res);
     }
 
