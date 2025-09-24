@@ -179,6 +179,15 @@ public class KlasAPI {
 		return result;
 	}
 
+	@RequestMapping(value = {"/logout.*"})
+	@ResponseBody
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+
+		return "";
+	}
+
 	private static void putIfNotEmpty(Map<String, Object> params, String key, String value, boolean stripDash) {
 		if (StringUtils.isNotEmpty(value)) {
 			params.put(key, stripDash ? value.replaceAll("-", "") : value);

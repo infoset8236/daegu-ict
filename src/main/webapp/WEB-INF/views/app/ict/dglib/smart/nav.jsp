@@ -25,7 +25,7 @@
                 <a href="/ict/dglib/account/myPage.do">
                     <span>${sessionScope.member.member_name}</span>님
                 </a>
-                <button class="logout" onclick="location.href='/ict/dglib/account/logout.do'"></button>
+                <button class="logout" id="smartLogoutBtn"></button>
             </div>
         </c:otherwise>
     </c:choose>
