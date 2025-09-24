@@ -29,16 +29,18 @@
                     회원 서비스 이용을 위해<br>
                     로그인 해주세요
                 </div>
-                <form action="" class="loginForm">
-                    <label for="id">
+                <form id="loginForm" class="loginForm" method="post" autocomplete="off">
+                    <label for="id" class="sr-only">
                         <img src="/resources/ict/dglib/account/img/id.svg" alt="">
-                        <input type="text" id="id" placeholder="아이디를 입력해주세요">
+                        <input type="text" id="id" name="member_id" placeholder="아이디를 입력해주세요" autocomplete="off" required>
                     </label>
-                    <label for="password">
+
+                    <label for="password" class="sr-only">
                         <img src="/resources/ict/dglib/account/img/password.svg" alt="">
-                        <input type="password" id="password" placeholder="비밀번호를 입력해주세요">
+                        <input type="password" id="password" name="member_pw" placeholder="비밀번호를 입력해주세요" autocomplete="new-password" required>
                     </label>
-                    <button class="submit">로그인</button>
+
+                    <button type="submit" class="submit">로그인</button>
                 </form>
                 <div class="simpleLoginMessage">회원증으로 간편로그인하세요</div>
                 <a href="/ict/dglib/account/rfid.do?from=${param.from == 'smart' ? 'smart' : 'touch'}" class="rfidLoginLink">
@@ -47,6 +49,14 @@
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/${param.from == 'smart' ? 'smart' : 'touch'}/nav.jsp" />
         </div>
+
+        <div id="commonPopup" class="commonPopup" style="display:none;">
+            <div class="commonPopupContent">
+                <div id="commonPopupMessage">최대 3개의 키워드를 선택하실 수 있습니다.</div>
+                <button id="commonPopupClose">확인</button>
+            </div>
+        </div>
+
     </div>
     <div class="scrollUp">
         <img src="/resources/ict/common/img/common/scrollUp.svg" alt="">

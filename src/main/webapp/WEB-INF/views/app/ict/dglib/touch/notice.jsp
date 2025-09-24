@@ -28,13 +28,7 @@
                 <div>공지사항</div>
             </div>
             <div class="content">
-                <ul class="noticeList">
-                    <%-- 반복문으로 li 출력 --%>
-                    <li>
-                        <img src="/resources/ict/dglib/touch/img/common/dummy.png" alt="">
-                        <div class="title"><p>공지사항 타이틀</p></div>
-                    </li>
-                </ul>
+                <ul class="noticeList"></ul>
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/touch/nav.jsp"/>
         </div>

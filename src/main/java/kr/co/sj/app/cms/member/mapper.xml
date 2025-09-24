@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sj.app.cms.member.MemberDao">
+
+	<select id="getMember" resultType="kr.co.sj.app.cms.member.Member">
+		SELECT
+			A.homepage_id, A.member_id, A.member_name, A.phone, A.link_member_yn,
+			A.add_date
+		FROM
+			CMS_MEMBER A
+		WHERE 1=1
+			<if test="search_type != null and search_type != '' and search_text != null and search_text != ''">
+				AND	A.${search_type} LIKE '%'||#{search_text}||'%'
+			</if>
+		ORDER BY
+			A.add_date DESC
+	</select>
+
+	<select id="getMemberCount" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			CMS_MEMBER A
+		WHERE 1=1
+			<if test="search_type != null and search_type != '' and search_text != null and search_text != ''">
+				AND	A.${search_type} LIKE '%'||#{search_text}||'%'
+			</if>
+		ORDER BY
+			A.add_date ASC
+	</select>
+
+	<select id="getMemberOne" resultType="kr.co.sj.app.cms.member.Member">
+		SELECT
+			A.member_id, A.member_name, A.member_pw, A.birth_day, A.email,
+			A.zipcode, A.address, A.phone, A.CELL_phone,
+			A.sms_service_yn, A.email_service_yn, A.add_ip, A.add_date,
+			A.pw_change_date, A.last_login, A.link_member_yn, 'CMS' AS LOGINTYPE
+		FROM
+			CMS_MEMBER A
+		WHERE
+			A.member_id = #{member_id}
+	</select>
+
+	<insert id="addMember">
+		INSERT INTO
+			CMS_MEMBER
+		(
+			member_id, member_name, member_pw, birth_day, email,
+			zipcode, address, phone, CELL_phone,
+			sms_service_yn, email_service_yn, add_ip, add_date,
+			pw_change_date, last_login, link_member_yn, add_id
+		) VALUES
+		(
+			#{member_id}, #{member_name}, #{member_pw}, #{birth_day}, #{email},
+			#{zipcode}, #{address}, #{phone}, #{cell_phone},
+			#{sms_service_yn}, #{email_service_yn}, #{add_ip}, SYSDATE,
+			SYSDATE, SYSDATE, #{link_member_yn}, #{add_id}
+		)
+	</insert>
+
+	<update id="modifyMember">
+		UPDATE
+			CMS_MEMBER
+		SET
+			<if test="member_pw != null and member_pw != '' " >
+			member_pw 	= #{member_pw},
+			</if>
+			member_name = #{member_name},
+			email 		= #{email},
+			zipcode 	= #{zipcode},
+			address 	= #{address},
+			phone 		= #{phone},
+			cell_phone 	= #{cell_phone},
+			sms_service_yn = #{sms_service_yn},
+			email_service_yn = #{email_service_yn},
+			modify_id = #{modify_id},
+			modify_date = SYSDATE
+		WHERE
+			member_id = #{member_id}
+	</update>
+
+	<delete id="deleteMember">
+		DELETE FROM
+			CMS_MEMBER
+		WHERE
+			member_id = #{member_id}
+	</delete>
+
+</mapper>

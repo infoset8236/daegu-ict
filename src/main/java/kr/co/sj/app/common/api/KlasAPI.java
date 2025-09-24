@@ -1,6 +1,9 @@
 package kr.co.sj.app.common.api;
 
+import kr.co.sj.app.cms.member.Member;
 import kr.co.sj.app.common.bean.LibraryConfig;
+import kr.co.sj.framework.utils.CalculateHashUtils;
+import kr.co.sj.framework.utils.StaticVariables;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.OutputStreamWriter;
@@ -116,6 +121,62 @@ public class KlasAPI {
 		putIfNotEmpty(params, "option", config.getBooktype());
 
 		return sendAPI("newbooklist", params);
+	}
+
+	@RequestMapping(value = {"/login.*"})
+	@ResponseBody
+	public static Map<String, Object> login(Member member, HttpServletRequest request) {
+		Map<String, Object> params = new HashMap<>();
+		Map<String, Object> result = new HashMap<>();
+
+		try {
+			params.put("id", member.getMember_id());
+			params.put("password", CalculateHashUtils.calculateHashSHA256(member.getMember_pw()));
+
+			Map<String, Object> apiResult = sendAPI("userlogin", params);
+
+			if (apiResult != null && "SUCCESS".equals(apiResult.get("RESULT_INFO"))) {
+				@SuppressWarnings("unchecked")
+				Map<String, Object> userData = (Map<String, Object>) apiResult.get("USER_DATA");
+
+				if (userData != null) {
+					member.setUser_no((String) userData.get("USER_NO"));
+					member.setMember_name((String) userData.get("NAME"));
+					member.setMember_id((String) userData.get("USER_ID"));
+					member.setMember_class((String) userData.get("USER_CLASS"));
+					member.setUser_class_code((String) userData.get("USER_CLASS_CODE"));
+					member.setUser_position_code((String) userData.get("USER_POSITION_CODE"));
+					member.setManage_code((String) userData.get("USER_MANAGE_CODE"));
+					member.setPhone((String) userData.get("HANDPHONE"));
+					member.setEmail((String) userData.get("E_MAIL"));
+				}
+
+				HttpSession session = request.getSession();
+				session.setAttribute(StaticVariables.MEMBER, member);
+
+				result.put("result", "SUCCESS");
+			} else {
+				result.put("result", "FAIL");
+
+				if (apiResult != null) {
+					if (apiResult.get("RESULT_MESSAGE") != null) {
+						result.put("message", apiResult.get("RESULT_MESSAGE").toString());
+					} else if (apiResult.get("message") != null) {
+						result.put("message", apiResult.get("message").toString());
+					} else {
+						result.put("message", "아이디 또는 비밀번호가 올바르지 않습니다.");
+					}
+				} else {
+					result.put("message", "로그인 서버 응답이 없습니다.");
+				}
+			}
+		} catch (Exception e) {
+			log.error("Login error", e);
+			result.put("result", "FAIL");
+			result.put("message", "로그인 중 오류가 발생했습니다.");
+		}
+
+		return result;
 	}
 
 	private static void putIfNotEmpty(Map<String, Object> params, String key, String value, boolean stripDash) {

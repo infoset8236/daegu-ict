@@ -27,6 +27,7 @@
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
     <mvc:interceptors>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        <!--<bean class="kr.co.sj.framework.interceptor.HomepageBaseInterceptor"/>-->
         <mvc:interceptor>
             <mvc:mapping path="/dms/**"/>
             <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">

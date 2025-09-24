@@ -6,20 +6,30 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <div class="waveBottomArea">
-    <%-- 뒤로가기 버튼 --%>
-    <%--  <div class="back" onclick="history.back();"></div>--%>
-    <div class="userState">
-        <img src="/resources/ict/common/img/wave/noUser.svg" alt="">
-        <a href="/ict/dglib/account/index.do?from=${fn:contains(pageContext.request.requestURI, '/smart/') ? 'smart' : 'touch'}">로그인</a>
-    </div>
-    <%-- 로그인 상태(남성) / 여성은 woman.svg --%>
-    <!--
-    <div class="userState">
-        <img src="/resources/ict/common/img/wave/man.svg" alt="">
-        <a href="/ict/dglib/account/myPage.do"><span>남바다</span>님</a>
-        <button class="logout"></button>
-    </div>
-    -->
+    <c:choose>
+        <c:when test="${empty sessionScope.member}">
+            <div class="userState">
+                <img src="/resources/ict/common/img/wave/noUser.svg" alt="">
+                <a href="/ict/dglib/account/index.do?from=${fn:contains(pageContext.request.requestURI, '/smart/') ? 'smart' : 'touch'}">로그인</a>
+            </div>
+        </c:when>
+
+        <c:otherwise>
+            <c:set var="genderIcon" value="/resources/ict/common/img/wave/man.svg"/>
+            <c:if test="${sessionScope.member.gpin_sex eq '1'}">
+                <c:set var="genderIcon" value="/resources/ict/common/img/wave/woman.svg"/>
+            </c:if>
+
+            <div class="userState">
+                <img src="${genderIcon}" alt="">
+                <a href="/ict/dglib/account/myPage.do">
+                    <span>${sessionScope.member.member_name}</span>님
+                </a>
+                <button class="logout" onclick="location.href='/ict/dglib/account/logout.do'"></button>
+            </div>
+        </c:otherwise>
+    </c:choose>
+
     <a class="goToAI" href="/ict/dglib/ai/index.do"></a>
     <div class="navigation">
         <a id="search" href="/ict/dglib/smart/index.do" data-paths="/ict/dglib/smart/index.do">검색</a>
