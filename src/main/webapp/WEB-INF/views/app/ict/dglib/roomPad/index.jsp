@@ -22,6 +22,8 @@
         <!-- 사용자 정보 -->
         <div class="userInfo">
             <a href="/ict/dglib/roomPad/myPage.do" class="usrProfileLnk">
+                <!-- 예약자 인증 페이지 변수처리 해주세요 -->
+<!--        <a href="/ict/dglib/roomPad/myPage.do" class="usrProfileLnk">-->
                 <img src="/resources/ict/dglib/roompad/img/user.svg" alt="프로필이미지">
             </a>
         </div>

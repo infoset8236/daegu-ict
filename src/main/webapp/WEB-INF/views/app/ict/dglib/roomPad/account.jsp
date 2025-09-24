@@ -15,14 +15,14 @@
 <body>
 <div class="container">
     <jsp:include page="/WEB-INF/views/app/ict/dglib/roomPad/nav.jsp" />
-
-    <div class="rpContent">
+    <div class="roomPadCont">
         <!-- 사용자 정보 -->
-        <div class="rpUser">
-            <a href="" class="usrProfileLink">
+        <div class="userInfo">
+            <a href="/ict/dglib/roomPad/myPage.do" class="usrProfileLnk">
                 <img src="/resources/ict/dglib/roompad/img/user.svg" alt="프로필이미지">
             </a>
         </div>
+
         <div class="resContainer">
             <div class="resHeader">
                 <div class="resTitEn">Reservation verification</div>

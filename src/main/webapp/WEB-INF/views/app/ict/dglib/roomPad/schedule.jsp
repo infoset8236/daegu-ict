@@ -41,17 +41,6 @@
                     <div class="roomUserName">이*현</div>
                     <div class="roomUserTime">11:00 ~ 12:00</div>
                 </div>
-
-                <div class="roomUserInfo">
-                    <div class="roomUserStatus">이용중</div>
-                    <div class="roomUserName">이*현</div>
-                    <div class="roomUserTime">11:00 ~ 12:00</div>
-                </div>
-                <div class="roomUserInfo">
-                    <div class="roomUserStatus">이용중</div>
-                    <div class="roomUserName">이*현</div>
-                    <div class="roomUserTime">11:00 ~ 12:00</div>
-                </div>
             </div>
         </div>
     </div>

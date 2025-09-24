@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     const slider = {
         $container: $(".myResList"), // 슬라이더 컨테이너
         $items: $(".myResList").children(".myResItem"), // 슬라이드 아이템

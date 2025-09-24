@@ -19,6 +19,7 @@
 <div class="container">
     <jsp:include page="/WEB-INF/views/app/ict/dglib/roomPad/nav.jsp" />
 
+    <!-- myRes = My Reservation -->
     <div class="myResCont">
         <div class="myResHead">
             <div class="myResTitEn">my Reservation status</div>
@@ -26,6 +27,7 @@
         </div>
 
         <div class="myResList">
+            <!-- myResItem 부분 반복문 / myResSts 공통클래스 stsCancel(취소) , stsCheckIn(입실완료) , stsWait (대기중) -->
             <div class="myResItem">
                 <div class="myResSum">
                     <div class="myResDate">2025. 07. 21. (월)</div>
