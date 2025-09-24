@@ -337,3 +337,10 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: PaperlogyMedium;
+    src: url('/resources/ict/common/font/Paperlogy-5Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+

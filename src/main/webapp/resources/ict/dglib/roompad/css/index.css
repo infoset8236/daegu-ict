@@ -6,238 +6,129 @@
     background-size: contain;
 }
 
-.navigation {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    padding: 0 2.81rem;
-    background: #0C0E34;
-    box-shadow: 0 0 40px 0 rgb(0 0 0 / 40%), 40px 0 80px 0 rgb(0 0 0 / 20%);
-}
-
-.library {
-    font-family: Paperlogy-Medium, sans-serif;
-    font-size: 1rem;
-    font-style: normal;
-    line-height: normal;
-    margin-bottom: 2.34rem;
-    padding: 1.25rem 1.875rem;
-    color: #FFF;
-}
-.todayWrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6875rem;
-}
-.caption {
-    font-family: PretendardMedium, sans-serif;
-    font-size: 0.75rem;
-    font-style: normal;
-    line-height: 100%;
-    text-align: center;
-    letter-spacing: -0.0225rem;
-    text-transform: uppercase;
-    color: #FFF;
-}
-
-.roomClock {
-    position: relative;
-    width: 10.31256rem;
-    height: 10.3125rem;
-    background-image: url("/resources/ict/dglib/roompad/img/clock.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#gc {
-    width: 10.31256rem;
-    height: 10.31256rem;
-}
-.dtWrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-}
-.dtWrap .dtDate{
-    color: #FFF;
-    text-align: center;
-    font-family: PretendardRegular, sans-serif;
-    font-size: 0.6875rem;
-    font-style: normal;
-    line-height: 100%; /* 0.6875rem */
-    letter-spacing: -0.01375rem;
-    text-transform: uppercase;
-}
-.dtWrap .dtTime{
-    color: #FFF;
-    text-align: center;
-    font-family: Roboto-Light, sans-serif;
-    font-size: 2.375rem;
-    font-style: normal;
-    line-height: 100%; /* 2.375rem */
-    letter-spacing: 0.16625rem;
-    text-transform: uppercase;
-}
-
-.btnNav{
-    display: flex;
-    padding: 0.46875rem;
-    width: 14.1rem;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    gap: 0.46875rem;
-    border-radius: 2.34375rem;
-    height: 3rem;
-    border: 1px solid #FFF;
-    color: #FFF;
-    text-align: center;
-    font-family: PretendardBold, sans-serif;
-    font-size: 0.9375rem;
-    font-style: normal;
-    line-height: 100%; /* 0.9375rem */
-    letter-spacing: -0.02813rem;
-    text-transform: uppercase;
-    margin-top: 2.5rem;
-}
-
-
-.rpContent{
+.roomPadCont{
     width: 100%;
 }
-.rpContent .rpUser{
+.roomPadCont .userInfo{
     display: flex;
     width: 100%;
-    padding: 1.25rem;
+    padding: 2.5rem 2.5rem 0 2.5rem;
     box-sizing: border-box;
     justify-content: flex-end;
     align-items: center;
 }
-.rpContent .rpUser .usrProfileLink{
-    width: 2.875rem;
-    height: 2.875rem;
-    flex-shrink: 0;
+.roomPadCont .userInfo .usrProfileLnk{
+    width: 5.75rem;
+    height: 5.75rem;
     aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 2.875rem;
+    border-radius: 5.75rem;
     background: rgba(255, 255, 255, 0.10);
 }
-.rpContent .rpUser .usrProfileLink > img{
-    width: 0.8125rem;
-    height: 0.8125rem;
+.roomPadCont .userInfo .usrProfileLnk > img{
+    width: 1.625rem;
+    height: 1.625rem;
     aspect-ratio: 1/1;
 }
 
-.rpContainer{
+.roomCont{
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 2.5rem
+    row-gap: 5rem
 }
-.rpContainer .rpInfo{
+.roomCont .roomInfo{
     display: flex;
-    width: 39.375rem;
+    width: 78.75rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.875rem;
+    gap: 1.75rem;
 }
-.rpContainer .rpInfo .rpTit{
+.roomCont .roomInfo .roomTit{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.375rem;
+    gap: 0.75rem;
 }
-.rpContainer .rpInfo .rpTit .rpTitEn{
+.roomCont .roomInfo .roomTit .roomTitEn{
     overflow: hidden;
     color: rgba(255, 255, 255, 0.50);
     text-align: center;
     text-overflow: ellipsis;
     font-family: PretendardMedium,sans-serif;
-    font-size: 0.75rem;
-    font-style: normal;
-    line-height: 100%; /* 0.75rem */
-    letter-spacing: 0.075rem;
-    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: 0.15rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     align-self: stretch;
 }
-.rpContainer .rpInfo .rpTit .rpTitKo{
+.roomCont .roomInfo .roomTit .roomTitKo{
     overflow: hidden;
     color: #FFF;
     text-align: center;
     text-overflow: ellipsis;
     font-family: PretendardSemiBold, sans-serif;
-    font-size: 3.125rem;
-    font-style: normal;
-    line-height: 120%; /* 3.75rem */
-    letter-spacing: -0.0625rem;
+    font-size: 6.25rem;
+    line-height: 120%;
+    letter-spacing: -0.125rem;
     text-transform: uppercase;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     align-self: stretch;
 }
-.rpContainer .rpInfo .rpTime{
+.roomCont .roomInfo .roomTime{
     color: #FFF;
     text-align: center;
     font-family: PretendardMedium, sans-serif;
-    font-size: 1.25rem;
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 1.25rem */
-    letter-spacing: -0.025rem;
+    line-height: 100%; /* 2.5rem */
+    letter-spacing: -0.05rem;
     text-transform: uppercase;
 }
 
-.rpContainer .rpReservation{
+.roomCont .reservation{
     display: flex;
-    width: 29.4375rem;
-    padding: 1.375rem 1.875rem;
+    padding: 2.75rem 3.75rem;
     justify-content: center;
     align-items: center;
-    gap: 1.875rem;
-    border-radius: 9.375rem;
+    gap: 3.75rem;
+    border-radius: 18.75rem;
     background: rgba(255, 255, 255, 0.15);
 }
-.rpContainer .rpReservation .resvInfo{
+.roomCont .reservation .resvInfo{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    flex: 1 0 0;
+    gap: 2rem;
 }
-.rpContainer .rpReservation .resvInfo .resvLbl{
+.roomCont .reservation .resvInfo .resvTit{
     color: #ADB5BD;
     text-align: center;
     font-family: RobotoRegular, sans-serif;
-    font-size: 0.6875rem;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 1.375rem;
     line-height: normal;
     text-transform: uppercase;
 }
-.rpContainer .rpReservation .resvInfo .resvTime{
+.roomCont .reservation .resvInfo .resvTime{
     color: #FFF;
     text-align: center;
     font-family: RobotoSemiBold, sans-serif;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
+    font-size: 3rem;
     line-height: normal;
 }
-.rpContainer .rpReservation .resvChkLink{
+.roomCont .reservation .resvChkBtn{
     display: flex;
-    padding: 0.75rem 1.375rem;
+    padding: 1.5rem 2.75rem;
     align-items: flex-start;
-    gap: 0.375rem;
-    border-radius: 2.5rem;
+    border-radius: 5rem;
     background: #191F28;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -247,98 +138,96 @@
     text-align: center;
     text-overflow: ellipsis;
     font-family: PretendardBold, sans-serif;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 700;
+    font-size: 2rem;
     line-height: normal;
-    letter-spacing: -0.025rem;
+    letter-spacing: -0.05rem;
 }
 
-.rpContainer .rpQueue{
-    width: 33rem;
+.roomCont .queueList{
     position: relative;
-    padding: 0 2.5rem;
-    box-sizing: border-box;
+    width: 58rem;
+    padding: 0 5rem;
 }
-.rpContainer .rpQueue .queueSlideList{
-    margin-right: -0.66rem;
-}
-.rpContainer .rpQueue .queueSlideList .queueSlideItem{
+.roomCont .queueList .queueSlideWrap{
     display: flex;
-    width: 33.3%;
-    height: 6.88rem;
+    gap: 1.31rem;
+}
+
+.roomCont .queueList .queueSlideWrap .queueSlideItem{
+    display: flex;
+    width: fit-content;
+    padding: 2.84375rem 3.875rem;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     border-radius: 1rem;
     border: 2px solid rgba(255, 255, 255, 0.30);
-    margin-right: 0.66rem;
-    box-sizing: border-box;
+    margin-right: 1.31rem;
 }
-.rpContainer .rpQueue .queueSlideList .queueSlideItem .queueStat{
+.roomCont .queueList .queueSlideWrap .queueSlideItem .queueStatus{
     color: #ADB5BD;
     text-align: center;
     font-family: PretendardMedium, sans-serif;
-    font-size: 0.6875rem;
-    font-style: normal;
-    font-weight: 500;
+    font-size: 1.375rem;
     line-height: normal;
-    letter-spacing: -0.01719rem;
+    letter-spacing: -0.03438rem;
 }
-.rpContainer .rpQueue .queueSlideList .queueSlideItem .queueUsrName{
+.roomCont .queueList .queueSlideWrap .queueSlideItem .queueUsrName{
     overflow: hidden;
     color: #FFF;
     text-align: center;
     text-overflow: ellipsis;
     font-family: PretendardSemiBold, sans-serif;
-    font-size: 1.125rem;
+    font-size: 2.25rem;
     font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: 0.05625rem;
-    margin-top: 0.28125rem;
+    letter-spacing: 0.1125rem;
+    margin-top: 0.56rem;
 }
-.rpContainer .rpQueue .queueSlideList .queueSlideItem .queueTime{
+.roomCont .queueList .queueSlideWrap .queueSlideItem .queueTime{
     color: #ADB5BD;
     text-align: center;
     font-family: RobotoSemiBold, sans-serif;
-    margin-top: 0.5625rem;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
+    font-size: 1.75rem;
     line-height: normal;
+    margin-top: 1.12rem;
+    white-space: nowrap;
 }
-.rpContainer .rpsArrows{
-
+.roomCont .queueArrows{
     width: 100%;
 }
-.rpContainer .rpsArrows .queueArrow{
+.roomCont .queueArrows .queueArrow{
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-3rem);
 }
-.rpContainer .rpsArrows .queuePrev{
+.roomCont .queueArrows .queueArrow > img{
+    width: 3.75rem;
+    height: 3.75rem;
+    aspect-ratio: 1/1;
+}
+.roomCont .queueArrows .queuePrev{
     left: 0;
 }
-.rpContainer .rpsArrows .queueNext{
+.roomCont .queueArrows .queueNext{
     right: 0;
 }
 
-.rpContainer .rpQueue .queuePaging{
-    width: 28rem;
-    height: 0.09375rem;
-    border-radius: 0.9375rem;
+.roomCont .queueList .queuePaging{
+    width: 58.875rem;
+    height: 0.1875rem;
+    border-radius: 1.875rem;
     background: rgba(255, 255, 255, 0.20);
-    margin-top: 1.5rem;
+    margin-top: 3rem;
 }
-.rpContainer .rpQueue .queuePaging .queueGauge{
+
+.roomCont .queueList .queuePaging .queueGauge{
     width: 0;
     height: 100%;
     background: rgba(255, 255, 255, 0.50);
     transition: 0.3s;
 }
 
-
+/* 모달 css */
 .modal {
     display: none; /* 기본 숨김 */
     position: fixed;
@@ -350,76 +239,76 @@
 }
 
 
-.usrChkPopup{
+.usrResvPopup{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 22.5rem;
-    padding-bottom: 1.5rem;
+    width: 45rem;
+    padding-bottom: 3rem;
     background-color: #fff;
-    border-radius: 1rem;
+    border-radius: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.usrChkPopup .ucpHeader{
+.usrResvPopup .usrResvHeader{
     display: flex;
-    height: 3rem;
-    padding: 0 2rem;
+    height: 6rem;
+    padding: 0 4rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: stretch;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 2rem 2rem 0 0;
     background: #8B95A1;
 }
-.usrChkPopup .ucpHeader .ucpTit{
+.usrResvPopup .usrResvHeader .usrResvTit{
     color: #FFF;
     text-align: center;
     font-family: PretendardMedium, sans-serif;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 140%; /* 1.4rem */
+    font-size: 2rem;
+    line-height: 140%;
     letter-spacing: -0.025rem;
 }
-.usrChkPopup .ucpContent{
+.usrResvPopup .usrResvCont{
     display: flex;
-    padding: 2.5rem 2rem;
+    padding: 5rem 4rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.25rem;
+    gap: 2.5rem;
     background-color: #fff;
 }
-.usrChkPopup .ucpContent .ucpScroll{}
-.usrChkPopup .ucpContent .ucpScroll .ucpList{
+.usrResvPopup .usrResvCont .usrResvScroll .usrResvList{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.625rem  1.25rem;
-    height: 6rem;
+    gap: 1.25rem  2.5rem;
+    height: 12rem;
     overflow-y: auto;
 }
-.usrChkPopup .ucpContent .ucpScroll .ucpList .ucpItem{
-    width: 4.6875rem;
+.usrResvPopup .usrResvCont .usrResvScroll .usrResvList .usrResvItem{
+    width: 9.375rem;
     text-align: center;
+    text-overflow: ellipsis;
+    font-family: PretendardMedium, sans-serif;
+    font-size: 2.25rem;
+    line-height: 140%;
 }
-.usrChkPopup .ucpBtn{
+.usrResvPopup .btnUsrResv{
     display: flex;
-    padding: 1rem 1.5rem;
+    padding: 2rem 3rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 1.5625rem;
+    border-radius: 3.125rem;
     background: #191F28;
     color: #FFF;
     text-align: center;
     font-family: PretendardMedium, sans-serif;
-    font-size: 1rem;
-    font-style: normal;
-    line-height: 1rem; /* 100% */
-    width: calc(100% - 8rem);
+    font-size: 2rem;
+    line-height: 2rem;
+    width: calc(100% - 16rem);
 }

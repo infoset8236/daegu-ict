@@ -1,0 +1,100 @@
+@media screen and (width <= 1920px) {
+    :root {
+        font-size: 16px; /* 1rem = 16px, 절반 스케일링 */
+    }
+}
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 2.5rem 3.75rem;
+    background: #0C0E34;
+    box-sizing: border-box;
+    box-shadow: 0 0 40px 0 rgb(0 0 0 / 40%), 40px 0 80px 0 rgb(0 0 0 / 20%);
+}
+
+.libraryTit {
+    font-family: PaperlogyMedium, sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 2.34rem;
+    padding: 1.25rem 1.875rem;
+    color: #FFF;
+}
+.todayWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.375rem;
+}
+.todayTit {
+    font-family: PretendardMedium, sans-serif;
+    font-size: 1.5rem;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.045rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.roomClock {
+    position: relative;
+    width: 20.62513rem;
+    height: 20.625rem;
+    background-image: url("/resources/ict/dglib/roompad/img/clock.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#gc {
+    width: 20.62513rem;
+    height: 20.625rem;
+}
+.todayInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.todayInfo .todayDate{
+    color: #FFF;
+    text-align: center;
+    font-family: PretendardRegular, sans-serif;
+    font-size: 1.375rem;
+    line-height: 100%;
+    letter-spacing: -0.0275rem;
+    text-transform: uppercase;
+}
+.todayInfo .todayTime{
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto-Light, sans-serif;
+    font-size: 4.75rem;
+    font-style: normal;
+    line-height: 100%; /* 2.375rem */
+    letter-spacing: 0.3325rem;
+    text-transform: uppercase;
+}
+
+.btnNav{
+    display: flex;
+    padding: 0.9375rem;
+    width: 28.1rem;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 4.6875rem;
+    height: 6rem;
+    border: 1px solid #FFF;
+    color: #FFF;
+    text-align: center;
+    font-family: PretendardBold, sans-serif;
+    font-size: 1.875rem;
+    line-height: 100%; /* 0.9375rem */
+    letter-spacing: -0.05625rem;
+    text-transform: uppercase;
+    margin-top: 5rem;
+}

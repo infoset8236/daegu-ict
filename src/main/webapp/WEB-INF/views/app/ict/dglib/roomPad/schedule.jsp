@@ -17,42 +17,29 @@
 </head>
 <body>
 <div class="container">
-    <div class="navigation">
-        <div class="library">대구도서관</div>
-        <div class="todayWrap">
-            <div class="caption">TODAY SCHEDULE</div>
-            <div class="roomClock">
-                <canvas id="gc"></canvas>
-            </div>
-            <div class="dtWrap">
-                <div class="dtDate">2025년 11월 05일(수)</div>
-                <div class="dtTime">11:08</div>
-            </div>
-        </div>
-        <a href="/ict/dglib/roomPad/index.do" class="btnNav">메인</a>
-    </div>
+    <jsp:include page="/WEB-INF/views/app/ict/dglib/roomPad/nav.jsp" />
 
-    <div class="rpContent">
-        <!-- 사용자 정보 -->
-        <div class="rpUser">
+    <div class="roomPadCont">
+        <div class="userInfo">
             <a href="/ict/dglib/roomPad/account.do" class="usrProfileLink">
                 <img src="/resources/ict/dglib/roompad/img/user.svg" alt="프로필이미지">
             </a>
         </div>
 
-        <div class="rpStatusItem">
+        <div class="roomStatusCont">
             <!-- 날짜 및 룸 정보 -->
-            <div class="rpStatusInfo">
-                <div class="rpStatusDate">2025. 07. 21. 월</div>
-                <div class="rpStatusRoom">그룹 스터디룸 01</div>
+            <div class="roomStatusInfo">
+                <div class="roomStatusDate">2025. 07. 21. 월</div>
+                <div class="roomStatusRoom">그룹 스터디룸 01</div>
             </div>
 
             <!-- 현재 이용자 정보 -->
-            <div class="rpStatusList">
-                <div class="rpUserInfo">
-                    <div class="rpUserStatus">이용중</div>
-                    <div class="rpUserName">이*현</div>
-                    <div class="rpUserTime">11:00 ~ 12:00</div>
+            <div class="roomStatusList">
+                <!-- roomUserInfo 부분 반복문 -->
+                <div class="roomUserInfo">
+                    <div class="roomUserStatus">이용중</div>
+                    <div class="roomUserName">이*현</div>
+                    <div class="roomUserTime">11:00 ~ 12:00</div>
                 </div>
             </div>
         </div>

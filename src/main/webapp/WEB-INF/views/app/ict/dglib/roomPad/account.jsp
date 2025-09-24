@@ -14,20 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="navigation">
-        <div class="library">대구도서관</div>
-        <div class="todayWrap">
-            <div class="caption">TODAY SCHEDULE</div>
-            <div class="roomClock">
-                <canvas id="gc"></canvas>
-            </div>
-            <div class="dtWrap">
-                <div class="dtDate">2025년 11월 05일(수)</div>
-                <div class="dtTime">11:08</div>
-            </div>
-        </div>
-        <a href="/ict/dglib/roomPad/index.do" class="btnNav">메인</a>
-    </div>
+    <jsp:include page="/WEB-INF/views/app/ict/dglib/roomPad/nav.jsp" />
 
     <div class="rpContent">
         <!-- 사용자 정보 -->

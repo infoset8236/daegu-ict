@@ -6,248 +6,139 @@
     background-size: contain;
 }
 
-.navigation {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    padding: 0 2.81rem;
-    background: #0C0E34;
-    box-shadow: 0 0 40px 0 rgb(0 0 0 / 40%), 40px 0 80px 0 rgb(0 0 0 / 20%);
-}
-
-.library {
-    font-family: Paperlogy-Medium, sans-serif;
-    font-size: 1rem;
-    font-style: normal;
-    line-height: normal;
-    margin-bottom: 2.34rem;
-    padding: 1.25rem 1.875rem;
-    color: #FFF;
-}
-.todayWrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6875rem;
-}
-.caption {
-    font-family: PretendardMedium, sans-serif;
-    font-size: 0.75rem;
-    font-style: normal;
-    line-height: 100%;
-    text-align: center;
-    letter-spacing: -0.0225rem;
-    text-transform: uppercase;
-    color: #FFF;
-}
-
-.roomClock {
-    position: relative;
-    width: 10.31256rem;
-    height: 10.3125rem;
-    background-image: url("/resources/ict/dglib/roompad/img/clock.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#gc {
-    width: 10.31256rem;
-    height: 10.31256rem;
-}
-.dtWrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-}
-.dtWrap .dtDate{
-    color: #FFF;
-    text-align: center;
-    font-family: PretendardRegular, sans-serif;
-    font-size: 0.6875rem;
-    font-style: normal;
-    line-height: 100%; /* 0.6875rem */
-    letter-spacing: -0.01375rem;
-    text-transform: uppercase;
-}
-.dtWrap .dtTime{
-    color: #FFF;
-    text-align: center;
-    font-family: Roboto-Light, sans-serif;
-    font-size: 2.375rem;
-    font-style: normal;
-    line-height: 100%; /* 2.375rem */
-    letter-spacing: 0.16625rem;
-    text-transform: uppercase;
-}
-
-.btnNav{
-    display: flex;
-    padding: 0.46875rem;
-    width: 14.1rem;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    gap: 0.46875rem;
-    border-radius: 2.34375rem;
-    height: 3rem;
-    border: 1px solid #FFF;
-    color: #FFF;
-    text-align: center;
-    font-family: PretendardBold, sans-serif;
-    font-size: 0.9375rem;
-    font-style: normal;
-    line-height: 100%; /* 0.9375rem */
-    letter-spacing: -0.02813rem;
-    text-transform: uppercase;
-    margin-top: 2.5rem;
-}
-
-
-.rpContent{
+.roomPadCont{
     width: 100%;
 }
-.rpContent .rpUser{
+.roomPadCont .userInfo{
     display: flex;
-    width: 100%;
-    padding: 1.25rem;
-    box-sizing: border-box;
+    align-items: center;
     justify-content: flex-end;
-    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2.5rem;
 }
-.rpContent .rpUser .usrProfileLink{
-    width: 2.875rem;
-    height: 2.875rem;
-    flex-shrink: 0;
-    aspect-ratio: 1/1;
+.roomPadCont .userInfo .usrProfileLink{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 2.875rem;
+    width: 5.75rem;
+    height: 5.75rem;
+    border-radius: 5.75rem;
     background: rgba(255, 255, 255, 0.10);
+    aspect-ratio: 1/1;
 }
-.rpContent .rpUser .usrProfileLink > img{
-    width: 0.8125rem;
-    height: 0.8125rem;
+.roomPadCont .userInfo .usrProfileLink > img{
+    width: 1.625rem;
+    height: 1.625rem;
     aspect-ratio: 1/1;
 }
 
-.rpStatusItem{
+
+.roomStatusCont{
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
-    width: 30rem;
+    width: 58.8rem;
     margin: 0 auto;
+    gap: 6.25rem;
 }
-.rpStatusItem .rpStatusInfo{
+.roomStatusCont .roomStatusInfo{
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
-    align-items: center;
 }
-.rpStatusItem .rpStatusInfo .rpStatusDate{
-    color: #FFF;
+.roomStatusCont .roomStatusInfo .roomStatusDate{
+    font-family: PretendardSemiBold, sans-serif;
+    font-size: 3.25rem;
+    line-height: 100%;
     text-align: center;
-    font-family: PretendardSemiBold, sans-serif;
-    font-size: 1.625rem;
-    font-style: normal;
-    line-height: 100%; /* 1.625rem */
-    letter-spacing: -0.0325rem;
+    letter-spacing: -0.07125rem;
     text-transform: uppercase;
-}
-.rpStatusItem .rpStatusInfo .rpStatusRoom{
     color: #FFF;
-    text-align: right;
+}
+.roomStatusCont .roomStatusInfo .roomStatusRoom{
     font-family: PretendardSemiBold, sans-serif;
-    font-size: 1.1875rem;
-    font-style: normal;
-    line-height: 100%; /* 1.1875rem */
-    letter-spacing: -0.03563rem;
-    text-transform: uppercase;
+    font-size: 2.375rem;
+    line-height: 100%;
+    letter-spacing: -0.07125rem;
+    color: #FFF;
 }
 
-.rpStatusItem .rpStatusList{
+.roomStatusCont .roomStatusList{
     width: 100%;
 }
 
-.rpStatusItem .rpStatusList .rpUserGroup2{
+.roomStatusCont .roomStatusList .rpUserGroup2{
     display: flex;
-    gap: 0.6875rem;
+    gap: 1.375rem;
 }
-.rpStatusItem .rpStatusList .rpUserGroup3{
+.roomStatusCont .roomStatusList .rpUserGroup3{
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6875rem;
+    gap: 1.375rem;
 }
 
-.rpStatusItem .rpStatusList .rpStatusWrap{
+.roomStatusCont .roomStatusList .rpStatusWrap{
     display: flex;
     flex-wrap: wrap;
-    column-gap: 0.6875rem;
-    row-gap: 0.75rem;
-    width: 30rem;
+    width: 59rem;
+    column-gap: 1.375rem;
+    row-gap: 1.5rem;
 }
-.rpStatusItem .rpStatusList .rpUserInfo{
+.roomStatusCont .roomStatusList .roomUserInfo{
     display: flex;
-    padding: 2.04059rem 1.93747rem 2.02816rem 1.93753rem;
-    justify-content: center;
     align-items: center;
-    border-radius: 1.25rem;
     flex-direction: column;
+    justify-content: center;
     box-sizing: border-box;
-    width: fit-content;
-    border: 2px solid rgba(255, 255, 255, 0.30);
+    width: 28rem;
+    padding: 4.08119rem 3.87494rem 4.05631rem 3.87506rem;
     transition: 0.3s;
+    border: 2px solid rgba(255, 255, 255, 0.30);
+    border-radius: 2.5rem;
 }
-.rpStatusItem .rpStatusList .rpUserInfo:hover,
-.rpStatusItem .rpStatusList .rpUserInfo:focus{
-    background-color: rgba(255, 255, 255, 0.15);
+.roomStatusCont .roomStatusList .roomUserInfo:hover,
+.roomStatusCont .roomStatusList .roomUserInfo:focus{
     border-color: transparent;
+    background-color: rgba(255, 255, 255, 0.15);
 }
-.rpStatusItem .rpStatusList .rpUserInfo .rpUserStatus{
-    color: #ADB5BD;
-    text-align: center;
+.roomStatusCont .roomStatusList .roomUserInfo .roomUserStatus{
     font-family: PretendardMedium, sans-serif;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 500;
+    font-size: 1.5rem;
     line-height: normal;
-    letter-spacing: -0.01875rem;
+    letter-spacing: -0.0375rem;
+    color: #ADB5BD;
 }
-.rpStatusItem .rpStatusList .rpUserInfo .rpUserName{
-    overflow: hidden;
-    color: #FFF;
-    text-align: center;
-    text-overflow: ellipsis;
+.roomStatusCont .roomStatusList .roomUserInfo .roomUserName{
     font-family: PretendardBold, sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: normal;
     display: -webkit-box;
+    overflow: hidden;
     width: 10.5rem;
+    margin-top: 0.26rem;
+    text-align: center;
+    letter-spacing: 0.125rem;
+    text-overflow: ellipsis;
+    color: #FFF;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    line-height: normal;
-    letter-spacing: 0.0625rem;
-    margin-top: 0.26rem;
 }
-.rpStatusItem .rpStatusList .rpUserInfo .rpUserTime{
-    color: #ADB5BD;
-    text-align: center;
+.roomStatusCont .roomStatusList .roomUserInfo .roomUserTime{
     font-family: RobotoSemiBold, sans-serif;
-    margin-top: 0.7em;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 600;
+    font-size: 2.25rem;
     line-height: normal;
+    margin-top: 0.7em;
+    text-align: center;
+    color: #ADB5BD;
 }
 
 /* dots 영역 위치, 정렬 */
 .slick-dots {
+    bottom: -1.78rem;
     display: flex;
     justify-content: center;
     gap: 0.7rem;
-    bottom: -1.78rem;
 }
 
 /* li 초기화 */
@@ -261,11 +152,11 @@
 .slick-dots li button {
     width: 0.4375rem;
     height: 0.4375rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: #4E5968; /* 비활성화 시 파란색 */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    border-radius: 50%;
+    background-color: #4E5968; /* 비활성화 시 파란색 */
+    aspect-ratio: 1/1;
 }
 
 /* 활성화된 dot */
