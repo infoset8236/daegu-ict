@@ -4,15 +4,14 @@
     }
 }
 
-
 .navigation {
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
     height: 100vh;
     padding: 2.5rem 3.75rem;
     background: #0C0E34;
-    box-sizing: border-box;
     box-shadow: 0 0 40px 0 rgb(0 0 0 / 40%), 40px 0 80px 0 rgb(0 0 0 / 20%);
 }
 
@@ -25,12 +24,14 @@
     padding: 1.25rem 1.875rem;
     color: #FFF;
 }
+
 .todayWrap{
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     gap: 3.375rem;
 }
+
 .todayTit {
     font-family: PretendardMedium, sans-serif;
     font-size: 1.5rem;
@@ -49,52 +50,56 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 #gc {
     width: 20.62513rem;
     height: 20.625rem;
 }
+
 .todayInfo{
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
 }
+
 .todayInfo .todayDate{
-    color: #FFF;
-    text-align: center;
     font-family: PretendardRegular, sans-serif;
     font-size: 1.375rem;
     line-height: 100%;
+    text-align: center;
     letter-spacing: -0.0275rem;
     text-transform: uppercase;
-}
-.todayInfo .todayTime{
     color: #FFF;
-    text-align: center;
+}
+
+.todayInfo .todayTime{
     font-family: Roboto-Light, sans-serif;
     font-size: 4.75rem;
     font-style: normal;
     line-height: 100%; /* 2.375rem */
+    text-align: center;
     letter-spacing: 0.3325rem;
     text-transform: uppercase;
+    color: #FFF;
 }
 
 .btnNav{
-    display: flex;
-    padding: 0.9375rem;
-    width: 28.1rem;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    border-radius: 4.6875rem;
-    height: 6rem;
-    border: 1px solid #FFF;
-    color: #FFF;
-    text-align: center;
     font-family: PretendardBold, sans-serif;
     font-size: 1.875rem;
     line-height: 100%; /* 0.9375rem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 28.1rem;
+    height: 6rem;
+    margin-top: 5rem;
+    padding: 0.9375rem;
+    text-align: center;
     letter-spacing: -0.05625rem;
     text-transform: uppercase;
-    margin-top: 5rem;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 4.6875rem;
 }

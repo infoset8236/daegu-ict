@@ -22,7 +22,6 @@
                 <img src="/resources/ict/dglib/roompad/img/user.svg" alt="프로필이미지">
             </a>
         </div>
-
         <div class="resContainer">
             <div class="resHeader">
                 <div class="resTitEn">Reservation verification</div>
@@ -36,7 +35,6 @@
                 <img class="signal4" src="/resources/ict/dglib/roompad/img/auth/signal2.svg" alt="">
             </div>
         </div>
-
     </div>
 </div>
 </body>

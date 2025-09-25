@@ -9,6 +9,7 @@
 .roomPadCont{
     width: 100%;
 }
+
 .roomPadCont .userInfo{
     display: flex;
     align-items: center;
@@ -17,6 +18,7 @@
     width: 100%;
     padding: 2.5rem;
 }
+
 .roomPadCont .userInfo .usrProfileLink{
     display: flex;
     align-items: center;
@@ -27,12 +29,12 @@
     background: rgba(255, 255, 255, 0.10);
     aspect-ratio: 1/1;
 }
+
 .roomPadCont .userInfo .usrProfileLink > img{
     width: 1.625rem;
     height: 1.625rem;
     aspect-ratio: 1/1;
 }
-
 
 .roomStatusCont{
     display: flex;
@@ -41,12 +43,14 @@
     margin: 0 auto;
     gap: 6.25rem;
 }
+
 .roomStatusCont .roomStatusInfo{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
+
 .roomStatusCont .roomStatusInfo .roomStatusDate{
     font-family: PretendardSemiBold, sans-serif;
     font-size: 3.25rem;
@@ -56,6 +60,7 @@
     text-transform: uppercase;
     color: #FFF;
 }
+
 .roomStatusCont .roomStatusInfo .roomStatusRoom{
     font-family: PretendardSemiBold, sans-serif;
     font-size: 2.375rem;
@@ -72,6 +77,7 @@
     display: flex;
     gap: 1.375rem;
 }
+
 .roomStatusCont .roomStatusList .rpUserGroup3{
     display: flex;
     flex-wrap: wrap;
@@ -85,6 +91,7 @@
     column-gap: 1.375rem;
     row-gap: 1.5rem;
 }
+
 .roomStatusCont .roomStatusList .roomUserInfo{
     display: flex;
     align-items: center;
@@ -97,11 +104,13 @@
     border: 2px solid rgba(255, 255, 255, 0.30);
     border-radius: 2.5rem;
 }
+
 .roomStatusCont .roomStatusList .roomUserInfo:hover,
 .roomStatusCont .roomStatusList .roomUserInfo:focus{
     border-color: transparent;
     background-color: rgba(255, 255, 255, 0.15);
 }
+
 .roomStatusCont .roomStatusList .roomUserInfo .roomUserStatus{
     font-family: PretendardMedium, sans-serif;
     font-size: 1.5rem;
@@ -109,6 +118,7 @@
     letter-spacing: -0.0375rem;
     color: #ADB5BD;
 }
+
 .roomStatusCont .roomStatusList .roomUserInfo .roomUserName{
     font-family: PretendardBold, sans-serif;
     font-size: 2.5rem;
@@ -124,6 +134,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
+
 .roomStatusCont .roomStatusList .roomUserInfo .roomUserTime{
     font-family: RobotoSemiBold, sans-serif;
     font-size: 2.25rem;

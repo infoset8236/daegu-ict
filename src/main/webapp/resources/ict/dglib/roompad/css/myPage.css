@@ -5,6 +5,7 @@
     background-position: top left;
     background-size: contain;
 }
+
 .myResCont{
     display: flex;
     align-items: center;
@@ -13,6 +14,7 @@
     width: 100%;
     gap: 5rem;
 }
+
 .myResCont .myResHead{
     display: flex;
     align-items: center;
@@ -21,6 +23,7 @@
     width: 78.75rem;
     gap: 1.25rem;
 }
+
 .myResCont .myResHead .myResTitEn{
     font-family: PretendardMedium, sans-serif;
     font-size: 1.25rem;
@@ -30,6 +33,7 @@
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.50);
 }
+
 .myResCont .myResHead .myResTitKo{
     font-family: PretendardSemiBold, sans-serif;
     font-size: 4.5rem;
@@ -45,6 +49,7 @@
     width: 64.3125rem;
     margin: 0 auto;
 }
+
 .myResList .myResItem{
     display: flex;
     align-items: center;
@@ -58,6 +63,7 @@
     background: rgba(255, 255, 255, 0.10);
     gap: 2.5rem;
 }
+
 .myResList .myResItem .myResSum{
     display: flex;
     align-items: center;
@@ -66,6 +72,7 @@
     border-bottom: 2px solid #FFFFFF1A;
     gap: 2rem;
 }
+
 .myResList .myResItem .myResSum .myResDate{
     font-family: PretendardMedium, sans-serif;
     font-size: 1.5rem;
@@ -75,6 +82,7 @@
     text-transform: uppercase;
     color: #FFF;
 }
+
 .myResList .myResItem .myResSum .myResSts{
     font-family: PretendardMedium, sans-serif;
     font-size: 1.125rem;
@@ -89,15 +97,19 @@
     color: #FFF;
     border-radius: 100%;
 }
+
 .myResList .myResItem .myResSum .myResSts.stsCancel{
     background-color: #6B7684;
 }
+
 .myResList .myResItem .myResSum .myResSts.stsCheckIn{
     background-color: #0372FF;
 }
+
 .myResList .myResItem .myResSum .myResSts.stsWait{
     background-color: #029951;
 }
+
 .myResList .myResItem .myResSum .myResUsr{
     font-family: PretendardMedium, sans-serif;
     font-size: 1.5rem;
@@ -115,6 +127,7 @@
     flex-direction: column;
     gap: 1rem;
 }
+
 .myResList .myResItem .myResDtl .myResInfo{
     font-family: PretendardSemiBold, sans-serif;
     font-size: 1.25rem;
@@ -124,7 +137,8 @@
     color: #FFF;
     gap: 1rem;
 }
-.myResList .myResItem .myResDtl .myResInfo > span{
+
+.myResItem .myResDtl .myResInfo > span{
     font-family: PretendardMedium, sans-serif;
     font-size: 1.25rem;
     line-height: normal;
@@ -133,7 +147,6 @@
     color: #ADB5BD;
 }
 
-
 .slick-dots {
     bottom: -3.56rem;
     display: flex;
@@ -141,13 +154,11 @@
     gap: 1.4rem;
 }
 
-
 .slick-dots li {
     width: 0.875rem;
     height: 0.875rem;
     aspect-ratio: 1/1;
 }
-
 
 .slick-dots li button {
     width: 0.875rem;
@@ -159,10 +170,10 @@
     aspect-ratio: 1/1;
 }
 
-
 .slick-dots li.slick-active button {
     background-color: #FFF;
 }
+
 .slick-dots li button::before{
     display: none;
 }

@@ -18,14 +18,12 @@
 <body>
 <div class="container">
     <jsp:include page="/WEB-INF/views/app/ict/dglib/roomPad/nav.jsp" />
-
     <!-- myRes = My Reservation -->
     <div class="myResCont">
         <div class="myResHead">
             <div class="myResTitEn">my Reservation status</div>
             <div class="myResTitKo">나의 예약현황</div>
         </div>
-
         <div class="myResList">
             <!-- myResItem 부분 반복문 / myResSts 공통클래스 stsCancel(취소) , stsCheckIn(입실완료) , stsWait (대기중) -->
             <div class="myResItem">
@@ -63,8 +61,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

@@ -27,7 +27,6 @@
                 <img src="/resources/ict/dglib/roompad/img/user.svg" alt="프로필이미지">
             </a>
         </div>
-
         <div class="roomCont">
             <!-- 룸 정보 -->
             <div class="roomInfo">
@@ -37,7 +36,6 @@
                 </div>
                 <div class="roomTime">이용시간 : 09시 ~ 18시</div>
             </div>
-
             <!-- 예약 시간 -->
             <div class="reservation">
                 <div class="resvInfo">
@@ -46,7 +44,6 @@
                 </div>
                 <a href="javascript:void(0);" class="resvChkBtn">이용자 확인</a>
             </div>
-
             <!-- 대기자 리스트 슬라이드 -->
             <div class="queueList">
                 <div class="queueSlideWrap">
@@ -71,7 +68,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- 모달 영역 -->
 <div id="usrResvModal" class="modal">
@@ -90,10 +86,8 @@
         <a href="#" class="btnUsrResv">확인</a>
     </div>
 </div>
-
 </body>
 </html>
-
 <script>
     $(document).ready(function() {
         // 버튼 클릭 시 모달 열기
@@ -113,5 +107,4 @@
             }
         });
     });
-
 </script>

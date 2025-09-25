@@ -28,9 +28,7 @@
             <div class="todayTime">11:08</div>
         </div>
     </div>>
-
     <a id="btnNav" class="btnNav" href="#">메인</a>
-
 </div>
 </body>
 </html>

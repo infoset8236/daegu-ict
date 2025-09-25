@@ -18,21 +18,18 @@
 <body>
 <div class="container">
     <jsp:include page="/WEB-INF/views/app/ict/dglib/roomPad/nav.jsp" />
-
     <div class="roomPadCont">
         <div class="userInfo">
             <a href="/ict/dglib/roomPad/account.do" class="usrProfileLink">
                 <img src="/resources/ict/dglib/roompad/img/user.svg" alt="프로필이미지">
             </a>
         </div>
-
         <div class="roomStatusCont">
             <!-- 날짜 및 룸 정보 -->
             <div class="roomStatusInfo">
                 <div class="roomStatusDate">2025. 07. 21. 월</div>
                 <div class="roomStatusRoom">그룹 스터디룸 01</div>
             </div>
-
             <!-- 현재 이용자 정보 -->
             <div class="roomStatusList">
                 <!-- roomUserInfo 부분 반복문 -->
