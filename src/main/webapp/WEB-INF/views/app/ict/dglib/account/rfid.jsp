@@ -26,7 +26,6 @@
     $(function () {
         const $input = $("#member_id");
 
-        // 한글 → 영문 매핑
         const charMapping = {
             'ㅁ': 'a', 'ㅠ': 'b', 'ㅊ': 'c', 'ㅇ': 'd', 'ㄷ': 'e', 'ㄹ': 'f', 'ㅎ': 'g',
             'ㅗ': 'h', 'ㅑ': 'i', 'ㅓ': 'j', 'ㅏ': 'k', 'ㅣ': 'l', 'ㅡ': 'm', 'ㅜ': 'n',
@@ -34,14 +33,12 @@
             'ㅍ': 'v', 'ㅈ': 'w', 'ㅌ': 'x', 'ㅛ': 'y', 'ㅋ': 'z'
         };
 
-        // 특정 조합 입력 무시 (IME 입력 방지)
         $(document).on("keydown", function (e) {
             if (e.keyCode === 21 || e.keyCode === 229 || e.isComposing) {
                 e.preventDefault();
             }
         });
 
-        // 입력값 처리 (Enter 입력 시 실행)
         $input.on("keydown", function (e) {
             if (e.key === "Enter") {
                 e.preventDefault();
@@ -57,8 +54,6 @@
                     converted = rawValue;
                 }
 
-                alert(converted);
-
                 $.ajax({
                     url: "/api/klas/rfidLogin.do",
                     type: "POST",
@@ -66,15 +61,23 @@
                     dataType: "json",
                     success: function (res) {
                         if (res.result === "SUCCESS") {
-                            // 로그인 성공 시 처리
-                            location.href = "/ict/dglib/account/main";
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const from = urlParams.get("from");
+
+                            if (from === "smart") {
+                                location.href = "/ict/dglib/smart/index.do";
+                            } else if (from === "touch") {
+                                location.href = "/ict/dglib/touch/index.do";
+                            } else {
+                                location.reload();
+                            }
                         } else {
-                            alert(res.message || "로그인 실패");
+                            showCommonPopup(res.message || "아이디 또는 비밀번호가 올바르지 않습니다.");
                         }
                     },
                     error: function (xhr, status, err) {
                         console.error("로그인 요청 실패:", err);
-                        alert("서버와 통신 중 오류가 발생했습니다.");
+                        showCommonPopup("로그인 요청 중 오류가 발생했습니다.");
                     }
                 });
 
@@ -82,7 +85,6 @@
             }
         });
 
-        // 항상 입력창에 포커스 유지
         function keepFocus() {
             $input.focus();
         }
@@ -90,9 +92,20 @@
         document.onmousedown = keepFocus;
         document.onmouseup = keepFocus;
 
-        // 페이지 로드 시 포커스
         $input.focus();
     });
+
+    function showCommonPopup(message, callback) {
+    $("#commonPopupMessage").text(message);
+    $("#commonPopup").fadeIn();
+
+    $("#commonPopupClose").off("click").on("click", function() {
+        $("#commonPopup").fadeOut();
+        if (typeof callback === "function") {
+            callback();
+        }
+    });
+}
 </script>
 
 <div class="dim">
@@ -102,7 +115,7 @@
                 <div class="title">RFID 로그인</div>
                 <div class="description">기기 하단의 회원증 인식부에 회원증을 올려주세요</div>
 
-                <input id="member_id" type="text" name="member_id" size="30" title="아이디" autocomplete="off" style="position:absolute;top:-5000px;left:-5000px;opacity:0;" inputmode="none">
+                <input id="member_id" type="text" name="member_id" autocomplete="off" style="width:1px;height:1px;position:absolute;left:-9999px;" tabindex="-1">
 
                 <div class="decoration">
                     <img class="signal1" src="/resources/ict/dglib/account/img/signal1.svg" alt="">
