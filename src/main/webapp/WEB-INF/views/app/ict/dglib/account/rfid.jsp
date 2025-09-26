@@ -21,12 +21,101 @@
     <title>Document</title>
 </head>
 <body>
+
+<script>
+    $(function () {
+        const $input = $("#member_id");
+
+        const charMapping = {
+            'ㅁ': 'a', 'ㅠ': 'b', 'ㅊ': 'c', 'ㅇ': 'd', 'ㄷ': 'e', 'ㄹ': 'f', 'ㅎ': 'g',
+            'ㅗ': 'h', 'ㅑ': 'i', 'ㅓ': 'j', 'ㅏ': 'k', 'ㅣ': 'l', 'ㅡ': 'm', 'ㅜ': 'n',
+            'ㅐ': 'o', 'ㅔ': 'p', 'ㅂ': 'q', 'ㄱ': 'r', 'ㄴ': 's', 'ㅅ': 't', 'ㅕ': 'u',
+            'ㅍ': 'v', 'ㅈ': 'w', 'ㅌ': 'x', 'ㅛ': 'y', 'ㅋ': 'z'
+        };
+
+        $(document).on("keydown", function (e) {
+            if (e.keyCode === 21 || e.keyCode === 229 || e.isComposing) {
+                e.preventDefault();
+            }
+        });
+
+        $input.on("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+
+                let rawValue = $input.val();
+                let converted = "";
+
+                if (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(rawValue)) {
+                    for (let char of rawValue) {
+                        converted += charMapping[char] || char;
+                    }
+                } else {
+                    converted = rawValue;
+                }
+
+                $.ajax({
+                    url: "/api/klas/rfidLogin.do",
+                    type: "POST",
+                    data: { member_id: converted },
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.result === "SUCCESS") {
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const from = urlParams.get("from");
+
+                            if (from === "smart") {
+                                location.href = "/ict/dglib/smart/index.do";
+                            } else if (from === "touch") {
+                                location.href = "/ict/dglib/touch/index.do";
+                            } else {
+                                location.reload();
+                            }
+                        } else {
+                            showCommonPopup(res.message || "아이디 또는 비밀번호가 올바르지 않습니다.");
+                        }
+                    },
+                    error: function (xhr, status, err) {
+                        console.error("로그인 요청 실패:", err);
+                        showCommonPopup("로그인 요청 중 오류가 발생했습니다.");
+                    }
+                });
+
+                $input.val("");
+            }
+        });
+
+        function keepFocus() {
+            $input.focus();
+        }
+        document.onmousemove = keepFocus;
+        document.onmousedown = keepFocus;
+        document.onmouseup = keepFocus;
+
+        $input.focus();
+    });
+
+    function showCommonPopup(message, callback) {
+    $("#commonPopupMessage").text(message);
+    $("#commonPopup").fadeIn();
+
+    $("#commonPopupClose").off("click").on("click", function() {
+        $("#commonPopup").fadeOut();
+        if (typeof callback === "function") {
+            callback();
+        }
+    });
+}
+</script>
+
 <div class="dim">
     <div class="container">
         <div class="scrollDownArea">
             <div class="content">
                 <div class="title">RFID 로그인</div>
                 <div class="description">기기 하단의 회원증 인식부에 회원증을 올려주세요</div>
+
+                <input id="member_id" type="text" name="member_id" autocomplete="off" style="width:1px;height:1px;position:absolute;left:-9999px;" tabindex="-1">
 
                 <div class="decoration">
                     <img class="signal1" src="/resources/ict/dglib/account/img/signal1.svg" alt="">

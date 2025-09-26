@@ -30,6 +30,8 @@ public class KlasAPI {
 
     public final static String KLAS_API_URL = ResourceBundle.getBundle("api").getString("klas.api.url");
 
+	private final static String API_KEY = "79724C6D73152DC1035B16B6198665D34A640D5D11E8ACD60083FA80FE417E58";
+
     public static HttpURLConnection initConn(String urlStr) throws Exception {
 		URL url = new URL(urlStr);
 
@@ -140,15 +142,7 @@ public class KlasAPI {
 				Map<String, Object> userData = (Map<String, Object>) apiResult.get("USER_DATA");
 
 				if (userData != null) {
-					member.setUser_no((String) userData.get("USER_NO"));
-					member.setMember_name((String) userData.get("NAME"));
-					member.setMember_id((String) userData.get("USER_ID"));
-					member.setMember_class((String) userData.get("USER_CLASS"));
-					member.setUser_class_code((String) userData.get("USER_CLASS_CODE"));
-					member.setUser_position_code((String) userData.get("USER_POSITION_CODE"));
-					member.setManage_code((String) userData.get("USER_MANAGE_CODE"));
-					member.setPhone((String) userData.get("HANDPHONE"));
-					member.setEmail((String) userData.get("E_MAIL"));
+					setMemberData(member, apiResult);
 				}
 
 				HttpSession session = request.getSession();
@@ -158,6 +152,65 @@ public class KlasAPI {
 			} else {
 				result.put("result", "FAIL");
 
+				if (apiResult != null) {
+					if (apiResult.get("RESULT_MESSAGE") != null) {
+						result.put("message", apiResult.get("RESULT_MESSAGE").toString());
+					} else if (apiResult.get("message") != null) {
+						result.put("message", apiResult.get("message").toString());
+					} else {
+						result.put("message", "아이디 또는 비밀번호가 올바르지 않습니다.");
+					}
+				} else {
+					result.put("message", "로그인 서버 응답이 없습니다.");
+				}
+			}
+		} catch (Exception e) {
+			log.error("Login error", e);
+			result.put("result", "FAIL");
+			result.put("message", "로그인 중 오류가 발생했습니다.");
+		}
+
+		return result;
+	}
+
+	@RequestMapping(value = {"/rfidLogin.*"})
+	@ResponseBody
+	public static Map<String, Object> rfidLogin(Member member, HttpServletRequest request) {
+		Map<String, Object> params = new HashMap<>();
+		Map<String, Object> result = new HashMap<>();
+
+		try {
+			params.put("option", 3);
+			params.put("user_no", member.getMember_id().toUpperCase());
+			params.put("api_key", API_KEY);
+
+			Map<String, Object> apiResult = sendAPI("userlogin", params);
+
+			boolean loginSuccess = false;
+
+			if (apiResult != null && "SUCCESS".equals(apiResult.get("RESULT_INFO"))) {
+				setMemberData(member, apiResult);
+				loginSuccess = true;
+			} else {
+				params.clear();
+				params.put("option", 4);
+				params.put("workno", member.getMember_id().toUpperCase());
+				params.put("api_key", API_KEY);
+
+				apiResult = sendAPI("userlogin", params);
+
+				if (apiResult != null && "SUCCESS".equals(apiResult.get("RESULT_INFO"))) {
+					setMemberData(member, apiResult);
+					loginSuccess = true;
+				}
+			}
+
+			if (loginSuccess) {
+				HttpSession session = request.getSession();
+				session.setAttribute(StaticVariables.MEMBER, member);
+				result.put("result", "SUCCESS");
+			} else {
+				result.put("result", "FAIL");
 				if (apiResult != null) {
 					if (apiResult.get("RESULT_MESSAGE") != null) {
 						result.put("message", apiResult.get("RESULT_MESSAGE").toString());
@@ -196,5 +249,29 @@ public class KlasAPI {
 
 	private static void putIfNotEmpty(Map<String, Object> params, String key, String value) {
 		putIfNotEmpty(params, key, value, false);
+	}
+
+	@SuppressWarnings("unchecked")
+	private static void setMemberData(Member member, Map<String, Object> apiResult) {
+		Map<String, Object> userData = (Map<String, Object>) apiResult.get("USER_DATA");
+		if (userData != null) {
+			member.setUser_no((String) userData.get("USER_NO"));
+			member.setRec_key((String) userData.get("REC_KEY"));
+			member.setMember_name((String) userData.get("NAME"));
+			member.setMember_id((String) userData.get("USER_ID"));
+			member.setMember_class((String) userData.get("USER_CLASS"));
+			member.setUser_class_code((String) userData.get("USER_CLASS_CODE"));
+			member.setUser_position_code((String) userData.get("USER_POSITION_CODE"));
+			member.setManage_code((String) userData.get("USER_MANAGE_CODE"));
+			member.setPhone((String) userData.get("H_PHONE"));
+			member.setEmail((String) userData.get("E_MAIL"));
+			member.setGpin_sex((String) userData.get("GPIN_SEX"));
+
+			String birthday = String.valueOf(userData.get("BIRTHDAY"));
+
+			if (StringUtils.isNotEmpty(birthday) && !StringUtils.equals(birthday, "null")) {
+				member.setBirth_day(birthday.replaceAll("/", "-"));
+			}
+		}
 	}
 }
