@@ -5,6 +5,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var isLogin = ${sessionScope.member.login == true ? "true" : "false"};
+
+    ["myPage", "custom"].forEach(function(id) {
+        var link = document.getElementById(id);
+        if (link) {
+            link.addEventListener("click", function(e) {
+                if (!isLogin) {
+                    e.preventDefault();
+                    showCommonPopup("로그인 후 이용 가능합니다.");
+                }
+            });
+        }
+    });
+});
+</script>
+
 <div class="waveBottomArea">
     <c:choose>
         <c:when test="${empty sessionScope.member}">
@@ -39,14 +57,21 @@
         <a id="bigData" href="/ict/dglib/smart/bigData.do" data-paths="/ict/dglib/smart/bigData.do">빅데이터추천</a>
         <a id="myPage" href="/ict/dglib/account/myPage.do?from=${sessionScope.mode}" data-paths="/ict/dglib/account/myPage.do">나의서재</a>
     </div>
-        <div class="bf bfController">
-            <div class="reset">초기화</div>
-            <div class="scrollDown">화면내리기</div>
-            <div class="windowController">
-                <div class="zoomOut"></div>
-                <div>화면크기(100%)</div>
-                <div class="zoom"></div>
-            </div>
-            <div class="magnifier">돋보기</div>
+    <div class="bf bfController">
+        <div class="reset">초기화</div>
+        <div class="scrollDown">화면내리기</div>
+        <div class="windowController">
+            <div class="zoomOut"></div>
+            <div>화면크기(100%)</div>
+            <div class="zoom"></div>
         </div>
+        <div class="magnifier">돋보기</div>
+    </div>
+</div>
+
+<div id="commonPopup" class="commonPopup" style="display:none;">
+    <div class="commonPopupContent">
+        <div id="commonPopupMessage"></div>
+        <button id="commonPopupClose">확인</button>
+    </div>
 </div>

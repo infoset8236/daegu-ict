@@ -71,13 +71,6 @@
     <div class="scrollUp">
         <img src="/resources/ict/common/img/common/scrollUp.svg" alt="">
     </div>
-
-    <div id="commonPopup" class="commonPopup" style="display:none;">
-        <div class="commonPopupContent">
-            <div id="commonPopupMessage"></div>
-            <button id="commonPopupClose">확인</button>
-        </div>
-    </div>
 </div>
 </body>
 </html>
