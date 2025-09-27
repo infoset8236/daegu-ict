@@ -105,8 +105,7 @@
                     <a class="last" href=""></a>
                 </div>
             </div>
-            <c:set var="referer" value="${header.referer}" />
-            <jsp:include page="/WEB-INF/views/app/ict/dglib/${fn:contains(referer, '/smart/') ? 'smart' : 'touch'}/nav.jsp" />
+            <jsp:include page="/WEB-INF/views/app/ict/dglib/${sessionScope.mode}/nav.jsp"/>
         </div>
     </div>
     <div class="scrollUp">

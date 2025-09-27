@@ -22,7 +22,7 @@
 
             <div class="userState">
                 <img src="${genderIcon}" alt="">
-                <a href="/ict/dglib/account/myPage.do">
+                <a href="/ict/dglib/account/myPage.do?from=${sessionScope.mode}">
                     <span>${sessionScope.member.member_name}</span>님
                 </a>
                 <button class="logout" id="touchLogoutBtn"></button>

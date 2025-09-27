@@ -233,6 +233,7 @@ public class Member implements Serializable {
 	private String data;
 	private String facility_id;
 	private String rfid_yn;
+	private String from;
 
     public boolean isAdmin() {
         return admin;
@@ -1928,5 +1929,13 @@ public class Member implements Serializable {
 
     public void setRfid_yn(String rfid_yn) {
         this.rfid_yn = rfid_yn;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
     }
 }

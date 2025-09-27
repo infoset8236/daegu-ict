@@ -38,6 +38,39 @@ $(document).ready(function () {
         "검색을 빠르게 척척!"
     ];
 
+    $(".searchForm").on("submit", function (e) {
+        e.preventDefault();
+
+        let searchType = $(".bookFilter div.active").attr("id");
+        let search_text = $("#searchInput").val().trim();
+
+        let manageCode = 'DG';
+        let pageno = '1';
+        let display = '10';
+        let search_type = 'detail';
+
+        if (search_text === "") {
+            showCommonPopup("검색어를 입력해주세요.");
+            return;
+        }
+
+        let url = "/ict/dglib/smart/result.do";
+        let params = [];
+
+        if (manageCode) params.push("manageCode=" + encodeURIComponent(manageCode));
+        if (pageno) params.push("pageno=" + encodeURIComponent(pageno));
+        if (display) params.push("display=" + encodeURIComponent(display));
+        if (searchType) params.push("searchType=" + encodeURIComponent(searchType));
+        if (search_text) params.push("search_text=" + encodeURIComponent(search_text));
+        if (search_type) params.push("search_type=" + encodeURIComponent(search_type));
+
+        if (params.length > 0) {
+            url += "?" + params.join("&");
+        }
+
+        location.href = url;
+    });
+
     let currentIndex = 0;
 
     function animatePlaceholder() {

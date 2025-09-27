@@ -65,6 +65,7 @@ $(function() {
 
         const member_id = $("#id").val().trim();
         const member_pw = $("#password").val().trim();
+        const from = new URLSearchParams(window.location.search).get("from");
 
         if (!member_id || !member_pw) {
             showCommonPopup("아이디와 비밀번호를 입력해주세요.");
@@ -74,16 +75,16 @@ $(function() {
         $.ajax({
             url: "/api/klas/login.do",
             type: "POST",
-            data: { member_id: member_id, member_pw: member_pw },
+            data: { member_id: member_id, member_pw: member_pw, from: from},
             dataType: "json",
             success: function(res) {
                 if (res.result === "SUCCESS") {
-                    if (res.redirectUrl && res.redirectUrl.trim() !== "") {
-                        location.href = res.redirectUrl;
-                    } else if (prevUrl && prevUrl.trim() !== "") {
-                        location.href = prevUrl;
+                    if (res.mode === "smart") {
+                        location.href = "/ict/dglib/smart/index.do?from=smart";
+                    } else if (res.mode === "touch") {
+                        location.href = "/ict/dglib/touch/index.do?from=touch";
                     } else {
-                        location.href = "/";
+                        location.reload();
                     }
                 } else {
                     showCommonPopup(res.message || "아이디 또는 비밀번호가 올바르지 않습니다.");

@@ -1,7 +1,5 @@
 package kr.co.sj.framework.utils;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class PagingUtils extends BeanUtils {
 
 	@Override
@@ -9,38 +7,35 @@ public class PagingUtils extends BeanUtils {
 		return super.clone();
 	}
 
-	private int rowCount = 10; // 페이지에 표시할 데이터 count
-	private int viewPage = 1; // 보여질페이지번호
+	private int rowCount; // 페이지에 표시할 데이터 count
+	private int viewPage; // 보여질페이지번호
 
-	private int startRowNum = 1; // 읽어올 시작ROW값
-	private int endRowNum = 10; // 읽어올 마지막ROW값
+	private int startRowNum; // 읽어올 시작ROW값
+	private int endRowNum; // 읽어올 마지막ROW값
 
 	private int listRowNum = 1; // 목록에서 보여줄 번호값 세팅
 
-	private int totalDataCount = 0;
+	private int totalDataCount;
 
 	private int totalPageCount = 0;
-	private int startPageNum  = 0;
+	private int startPageNum = 0;
 	private int endPageNum = 0;
 	private int listPageCount = 10;
 
-	private String sortField = "add_date"; // 검색용 : 정렬기준 필드
-	private String sortType =  "DESC"; // 검색용 : 정렬방법(ASC,DESC)
+	private int firstPageNum =1 ; // 맨앞페이지 이미지
+	private int lastPageNum; // 맨뒤페이지 이미지
 
-	private int firstPageNum = 1; // 맨앞페이지 이미지
-	private int lastPageNum = 0; // 맨뒤페이지 이미지
-
-	private int prevPageNum = 0; // 이전페이지
-	private int nextPageNum = 0; // 다음페이지
+	private int prevPageNum; // 이전페이지
+	private int nextPageNum; // 다음페이지
 
 	private String search_type; // 검색구분
 	private String search_text; // 검색어
 
 	public PagingUtils() {
-		if (StringUtils.equals(getSortField(), "add_date")) {
-			setSortField("TITLE");
-		}
-	}
+        // 기본 초기화 값 지정 가능
+        this.viewPage = 1;
+        this.rowCount = 10;
+    }
 
 	public PagingUtils(PagingUtils pagingUtils) {
 		setPagingVar(pagingUtils);
@@ -64,12 +59,6 @@ public class PagingUtils extends BeanUtils {
 		if (search_text != null && !search_text.equals("")) {
 			sb.append("&search_text = " + search_text);
 		}
-		if (sortField != null && !sortField.equals("")) {
-			sb.append("&sortField = " + sortField);
-		}
-		if (sortType != null && !sortType.equals("")) {
-			sb.append("&sortType = " + sortType);
-		}
 		return sb.toString();
 	}
 
@@ -84,33 +73,12 @@ public class PagingUtils extends BeanUtils {
 		this.startPageNum = pagingUtils.startPageNum;
 		this.endPageNum =  pagingUtils.endPageNum;
 		this.listPageCount = pagingUtils.listPageCount;
-		this.sortField = pagingUtils.sortField;
-		this.sortType = pagingUtils.sortType;
 		this.firstPageNum = pagingUtils.firstPageNum;
 		this.lastPageNum = pagingUtils.lastPageNum;
 		this.prevPageNum =  pagingUtils.prevPageNum;
 		this.nextPageNum = pagingUtils.nextPageNum;
 		this.search_type = pagingUtils.search_type;
 		this.search_text = pagingUtils.search_text;
-
-		if(!isEmpty(pagingUtils.getHomepage_id())) {
-			this.setHomepage_id(pagingUtils.getHomepage_id());
-		}
-		if(!isEmpty(pagingUtils.getMenu_url())) {
-			this.setMenu_url(pagingUtils.getMenu_url());
-		}
-		if(!isEmpty(pagingUtils.getEditMode())) {
-			this.setEditMode(pagingUtils.getEditMode());
-		}
-		super.setMenu_idx(pagingUtils.getMenu_idx());
-	}
-
-	private boolean isEmpty(String str) {
-		if(str == null || str.equals("")) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	private void pagingLogic() {
@@ -137,70 +105,6 @@ public class PagingUtils extends BeanUtils {
 		firstPageNum = firstPageNum!=1?1:0;
 	}
 
-	/**
-	 * 페이징 처리시 상단부분 query
-	 * @return
-	 */
-	public String getPagingTop() {
-		StringBuffer sb = new StringBuffer();
-		sb
-			.append(" SELECT * FROM ( " )
-			.append("   SELECT rownum AS rnum, Z.* FROM ( " );
-
-		return sb.toString();
-	}
-
-	/**
-	 * 페이징 처리시 하단부분 query
-	 * @return
-	 */
-	public String getPagingBottom() {
-		StringBuffer sb = new StringBuffer();
-		sb
-			.append("   ) Z WHERE ROWNUM <= " + endRowNum )
-			.append(" ) WHERE rnum >= " + startRowNum );
-
-		return sb.toString();
-	}
-
-	public String getOrderByNO() {
-		if(this.sortField == null || "".equals(this.sortField)) {
-			return "ROWNUM NO,";
-		} else {
-			return "ROW_NUMBER() OVER(ORDER BY " + sortField + " " + sortType + ") AS NO,";
-		}
-	}
-
-	public String getConnectPagingHead() {
-		StringBuffer sb = new StringBuffer();
-		sb
-			.append("SELECT * FROM ( ")
-			.append("  SELECT PAGING_TABLE.* FROM ( ");
-
-
-		return " SELECT * FROM ( " +
-			" 	SELECT * FROM ( " +
-			"		SELECT ROWNUM NO, PAGING_TABLE.* " +
-			"    	FROM( ";
-	}
-
-
-	public String getConnectPagingTail() {
-		return "     	) PAGING_TABLE " +
-			"     ) " +
-			"     WHERE NO <= " + endRowNum + " ) " +
-			" WHERE NO >= " + startRowNum;
-	}
-
-	public String getConnectOrderBy() {
-		StringBuffer sb = new StringBuffer("CONNECT BY PRIOR BOARD_SEQ = PARENT_SEQ START WITH PARENT_SEQ = 0 ");
-		sb.append("ORDER SIBLINGS BY ");
-		if( this.sortField != null && !"".equals(this.sortField))
-			sb.append( sortField + " " + sortType + ", ");
-		sb.append("GROUP_SEQ DESC , BOARD_SEQ ASC ");
-		return sb.toString();
-	}
-
 	public int getViewPage() {
 		return viewPage;
 	}
@@ -216,22 +120,6 @@ public class PagingUtils extends BeanUtils {
 
 	public int getEndRowNum() {
 		return endRowNum;
-	}
-
-	public String getSortType() {
-		return sortType;
-	}
-
-	public void setSortType(String sortType) {
-		this.sortType = sortType;
-	}
-
-	public String getSortField() {
-		return sortField;
-	}
-
-	public void setSortField(String sortField) {
-		this.sortField = sortField;
 	}
 
 	public void setStartRowNum(int startRowNum) {

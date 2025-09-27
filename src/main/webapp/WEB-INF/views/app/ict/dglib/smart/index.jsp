@@ -1,4 +1,10 @@
-<%@ page language="java" pageEncoding="utf-8" %>
+<%@ page language="java" pageEncoding="utf-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,7 +47,7 @@
                         <div id="author">저자명</div>
                         <div id="publisher">발행처</div>
                     </div>
-                    <form class="searchForm" action="">
+                    <form class="searchForm">
                         <label>
                             <input id="searchInput" type="text" placeholder="">
                         </label>
@@ -64,6 +70,13 @@
     </div>
     <div class="scrollUp">
         <img src="/resources/ict/common/img/common/scrollUp.svg" alt="">
+    </div>
+
+    <div id="commonPopup" class="commonPopup" style="display:none;">
+        <div class="commonPopupContent">
+            <div id="commonPopupMessage"></div>
+            <button id="commonPopupClose">확인</button>
+        </div>
     </div>
 </div>
 </body>

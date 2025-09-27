@@ -38,27 +38,38 @@
                 <div class="selectedKeyword"></div>
                 <div class="selectBox">
                     <div>
-                        <label for="gender">성별</label>
-                        <select id="gender">
-                            <option value="">여성</option>
+                        <label for="sex">성별</label>
+                        <select id="sex">
+                            <option value="">전체</option>
+                            <option value="0">여성</option>
+                            <option value="1">남성</option>
                         </select>
                     </div>
                     <div>
-                        <label for="age">나이</label>
-                        <select id="age">
-                            <option value="">30대 이상</option>
+                        <label for="book_keyword_age">나이</label>
+                        <select id="book_keyword_age">
+                            <option value="">전체</option>
+                            <option value="4">영유아</option>
+                            <option value="5">유아</option>
+                            <option value="8">초등</option>
+                            <option value="14">청소년</option>
+                            <option value="25">20대 이상</option>
+                            <option value="30">30대 이상</option>
+                            <option value="40">40대 이상</option>
+                            <option value="50">50대 이상</option>
+                            <option value="60">60대 이상</option>
                         </select>
                     </div>
                 </div>
-                <button class="submit">도서추천받기</button>
+                <button class="submit" onclick="recomend();">도서추천받기</button>
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/smart/nav.jsp"/>
         </div>
-        <!--	ict 공통 팝업입니다. 다른 곳에도 아래 팝업 사용하시면 됩니다.	-->
-        <div id="commonPopup" class="commonPopup">
+
+        <div id="commonPopup" class="commonPopup" style="display:none;">
             <div class="commonPopupContent">
-                <div>최대 3개의 키워드를 선택하실 수 있습니다.</div>
-                <button>확인</button>
+                <div id="commonPopupMessage"></div>
+                <button id="commonPopupClose">확인</button>
             </div>
         </div>
     </div>

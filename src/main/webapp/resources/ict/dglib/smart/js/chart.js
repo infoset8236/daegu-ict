@@ -74,7 +74,7 @@ $(() => {
         }))
       .on("click", (event, d) => {
         if (!d.active && selected.length >= 3) {
-          $("#commonPopup").fadeIn(200);
+          showCommonPopup("최대 3개의 키워드를 선택하실 수 있습니다.");
           return;
         }
         d.active = !d.active;
@@ -125,13 +125,51 @@ $(() => {
       });
   };
 
-  $(document).on("click", "#commonPopup button", () => {
-    $("#commonPopup").fadeOut(200);
-  });
-
   drawBubbles();
   $(".change").on("click", () => {
     selected = [];
     drawBubbles();
   });
+
 });
+
+function recomend() {
+    let selected_count = 0;
+
+    selected_count= $('.selectedKeyword button').length;
+
+    if (selected_count == 0) {
+
+        showCommonPopup("키워드를 하나 이상 선택 후 검색을 진행해 주세요.");
+
+        return;
+    }
+
+    var keyword = "";
+
+    for (var i = 0; i < selected_count; i++) {
+        var keyword_text = $('.selectedKeyword button').eq(i).text();
+
+        if (keyword === "") {
+            keyword = keyword_text;
+        } else {
+            keyword += "," + keyword_text;
+        }
+    }
+
+    const sex = $("#sex").val().trim();
+    const book_keyword_age = $("#book_keyword_age").val().trim();
+
+    let url = "/ict/dglib/smart/keyword.do";
+    let params = [];
+
+    if (keyword) params.push("keyword=" + encodeURIComponent(keyword));
+    if (sex) params.push("sex=" + encodeURIComponent(sex));
+    if (book_keyword_age) params.push("book_keyword_age=" + encodeURIComponent(book_keyword_age));
+
+    if (params.length > 0) {
+        url += "?" + params.join("&");
+    }
+
+    location.href = url;
+}

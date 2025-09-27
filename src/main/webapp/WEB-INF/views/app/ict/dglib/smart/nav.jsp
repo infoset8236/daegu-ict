@@ -22,7 +22,7 @@
 
             <div class="userState">
                 <img src="${genderIcon}" alt="">
-                <a href="/ict/dglib/account/myPage.do">
+                <a href="/ict/dglib/account/myPage.do?from=${sessionScope.mode}">
                     <span>${sessionScope.member.member_name}</span>님
                 </a>
                 <button class="logout" id="smartLogoutBtn"></button>
@@ -37,7 +37,7 @@
         <a id="custom" href="/ict/dglib/smart/custom.do" data-paths="/ict/dglib/smart/custom.do">맞춤형추천</a>
         <a id="librarian" href="/ict/dglib/smart/librarian.do" data-paths="/ict/dglib/smart/librarian.do">사서추천</a>
         <a id="bigData" href="/ict/dglib/smart/bigData.do" data-paths="/ict/dglib/smart/bigData.do">빅데이터추천</a>
-        <a id="myPage" href="/ict/dglib/account/myPage.do" data-paths="/ict/dglib/account/myPage.do">나의서재</a>
+        <a id="myPage" href="/ict/dglib/account/myPage.do?from=${sessionScope.mode}" data-paths="/ict/dglib/account/myPage.do">나의서재</a>
     </div>
         <div class="bf bfController">
             <div class="reset">초기화</div>

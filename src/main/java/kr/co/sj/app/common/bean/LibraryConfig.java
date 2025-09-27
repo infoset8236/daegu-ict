@@ -1,8 +1,11 @@
 package kr.co.sj.app.common.bean;
 
+import kr.co.sj.framework.utils.PagingUtils;
+
 import java.util.List;
 
-public class LibraryConfig {
+public class LibraryConfig extends PagingUtils{
+
     private String allBookListStr;
 	private List<String> libraryCodes;
 	private List<String> shelfCodes;
@@ -13,6 +16,7 @@ public class LibraryConfig {
 	private String search_athor;
 	private String search_publisher;
 	private String search_type2;// 패싯 검색
+	private String search_text;
 
 	private boolean sub_search;
 	private int menu_idx;
@@ -172,6 +176,9 @@ public class LibraryConfig {
 
     private int pageno;
     private int display;
+
+    private String orderby;
+    private String orderby_item;
 
     public String getAllBookListStr() {
         return allBookListStr;
@@ -1219,5 +1226,29 @@ public class LibraryConfig {
 
     public void setDisplay(int display) {
         this.display = display;
+    }
+
+    public String getOrderby() {
+        return orderby;
+    }
+
+    public void setOrderby(String orderby) {
+        this.orderby = orderby;
+    }
+
+    public String getOrderby_item() {
+        return orderby_item;
+    }
+
+    public void setOrderby_item(String orderby_item) {
+        this.orderby_item = orderby_item;
+    }
+
+    public String getSearch_text() {
+        return search_text;
+    }
+
+    public void setSearch_text(String search_text) {
+        this.search_text = search_text;
     }
 }

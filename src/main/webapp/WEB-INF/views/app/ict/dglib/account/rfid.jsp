@@ -54,19 +54,18 @@
                     converted = rawValue;
                 }
 
+                const from = new URLSearchParams(window.location.search).get("from");
+
                 $.ajax({
                     url: "/api/klas/rfidLogin.do",
                     type: "POST",
-                    data: { member_id: converted },
+                    data: { member_id: converted, from: from},
                     dataType: "json",
                     success: function (res) {
                         if (res.result === "SUCCESS") {
-                            const urlParams = new URLSearchParams(window.location.search);
-                            const from = urlParams.get("from");
-
-                            if (from === "smart") {
+                            if (res.mode === "smart") {
                                 location.href = "/ict/dglib/smart/index.do";
-                            } else if (from === "touch") {
+                            } else if (res.mode === "touch") {
                                 location.href = "/ict/dglib/touch/index.do";
                             } else {
                                 location.reload();

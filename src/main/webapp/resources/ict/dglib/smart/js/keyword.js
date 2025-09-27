@@ -22,3 +22,17 @@ $(document).ready(function () {
         });
     });
 });
+
+function goDetail(regNo, manageCode) {
+    let url = "/ict/dglib/smart/detail.do";
+    let params = [];
+
+    if (regNo) params.push("regNo=" + encodeURIComponent(regNo));
+    if (manageCode) params.push("manageCode=" + encodeURIComponent(manageCode));
+
+    if (params.length > 0) {
+        url += "?" + params.join("&");
+    }
+
+    location.href = url;
+}

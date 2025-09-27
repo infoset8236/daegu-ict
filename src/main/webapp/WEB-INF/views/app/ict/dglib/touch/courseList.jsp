@@ -39,7 +39,7 @@
 							<!--	<div class="courseStatus code5">신청대기</div>    -->
 							<!--	<div class="courseStatus code6">접수마감</div>    -->
 							<!--	<div class="courseStatus code7">수강종료</div>    -->
-							
+
                             <div class="courseStatus code1">수강신청</div>
                             <div>
                                 <div class="courseTitle">[노후준비 아카데미] 우리가족 슬기로운 경제생활</div>

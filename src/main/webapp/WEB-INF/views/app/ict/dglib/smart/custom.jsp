@@ -1,4 +1,8 @@
-<%@ page language="java" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,12 +37,13 @@
                     <div>회원님의 정보 및 독서취향을 분석한 맞춤책을 추천해드려요</div>
                 </div>
                 <div class="bookSlide">
-					<%-- 반복문으로 a 출력 --%>
-                    <a href="/ict/dglib/smart/detail.do" class="book">
-                        <img src="/resources/ict/dglib/smart/img/common/dummy.png" alt="">
-                        <div>로미오와 줄리엣</div>
-                        <div>윌리엄 셰익스피어</div>
-                    </a>
+                    <c:forEach items="${list}" var="i">
+                        <a href="/ict/dglib/smart/detail.do" class="book">
+                            <img src="${i.IMAGE}" alt="">
+                            <div>${i.TITLE_INFO}</div>
+                            <div>${i.AUTHOR}</div>
+                        </a>
+                    </c:forEach>
                 </div>
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/smart/nav.jsp"/>

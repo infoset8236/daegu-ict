@@ -1,4 +1,10 @@
 <%@ page language="java" pageEncoding="utf-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,11 +40,14 @@
                 </div>
                 <div class="bookSlide">
 					<%-- 반복문으로 a 출력 --%>
-                    <a href="/ict/dglib/smart/detail.do" class="book">
-                        <img src="/resources/ict/dglib/smart/img/common/dummy.png" alt="">
-                        <div>로미오와 줄리엣</div>
-                        <div>윌리엄 셰익스피어</div>
-                    </a>
+                    <c:forEach items="${bookSearch}" var="i" varStatus="status">
+                        <a href="javascript:void(0);" class="book" onclick="goDetail('${i.REG_NO}', '${i.MANAGE_CODE}');">
+                            <img src="${i.bookimageURL}" alt="">
+                            <div>${i.bookname}</div>
+                            <div>${i.author}</div>
+                        </a>
+                    </c:forEach>
+
                 </div>
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/smart/nav.jsp"/>

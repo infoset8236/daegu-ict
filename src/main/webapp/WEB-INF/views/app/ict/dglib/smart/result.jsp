@@ -1,4 +1,10 @@
 <%@ page language="java" pageEncoding="utf-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,46 +35,74 @@
                 <div>도서검색</div>
             </div>
             <div class="content">
-                <div class="totalCount">검색어 <span>'오늘'</span>에 대해 총 <span>706건</span>이 검색되었습니다.</div>
-                <ul class="resultList">
-					<%-- 반복문으로 li 출력 --%>
-                    <li class="resultItem">
-                        <div class="wrapper">
-                            <img src="/resources/ict/dglib/smart/img/common/dummy.png" alt="">
-                            <div class="bookInfo">
-                                <div>나는 오늘 불안과 친구가 되기로 했다오늘 밤</div>
-                                <div>
-                                    저&nbsp;&nbsp;자&nbsp;&nbsp;명
-                                    <span>공윤희, 윤예림</span>
-                                </div>
-                                <div>
-                                    발&nbsp;&nbsp;행&nbsp;&nbsp;처
-                                    <span>창비교육</span>
-                                </div>
-                                <div>
-                                    발행년도
-                                    <span>2023</span>
-                                </div>
-                                <div>
-                                    I&nbsp;&nbsp;S&nbsp;&nbsp;B&nbsp;&nbsp;N
-                                    <span>9791189228637</span>
+                <form id="mainSearchForm" modelAttribute="libraryConfig">
+                    <div class="totalCount">${searchType} <span>'${search_text}'</span>에 대해 총 <span>${bookCount}건</span>이 검색되었습니다.</div>
+                    <ul class="resultList">
+                        <%-- 반복문으로 li 출력 --%>
+                        <c:forEach items="${bookSearch}" var="i" varStatus="status">
+                        <li class="resultItem">
+                            <div class="wrapper">
+                                <c:choose>
+                                    <c:when test="${fn:contains(i.IMAGE,'noimg')}">
+                                        <img src="/resources/ict/dglib/smart/img/common/dummy.png" alt="">
+                                    </c:when>
+                                    <c:when test="${fn:contains(i.IMAGE,'bg_noImage2')}">
+                                        <img src="/resources/ict/dglib/smart/img/common/dummy.png" alt="">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img alt="" src="${i.IMAGE}" />
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <div class="bookInfo">
+                                    <div>${i.TITLE_INFO}</div>
+                                    <div>
+                                        저&nbsp;&nbsp;자&nbsp;&nbsp;명
+                                        <span>${i.AUTHOR}</span>
+                                    </div>
+                                    <div>
+                                        발&nbsp;&nbsp;행&nbsp;&nbsp;처
+                                        <span>${i.PUBLISHER}</span>
+                                    </div>
+                                    <div>
+                                        발행년도
+                                        <span>${i.PUB_YEAR}</span>
+                                    </div>
+                                    <div>
+                                        I&nbsp;&nbsp;S&nbsp;&nbsp;B&nbsp;&nbsp;N
+                                        <span>${i.ISBN}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <a href="/ict/dglib/smart/detail.do">상세보기</a>
-                    </li>
-                </ul>
-                <div class="pagination">
-                    <a class="first" href=""></a>
-                    <a class="prev" href=""></a>
-                    <ul>
-                        <li class="active">1</li>
-                        <li>2</li>
-                        <li>3</li>
+                            <a href="javascript:void(0);" onclick="goDetail('${i.REG_NO}', '${i.MANAGE_CODE}');">상세보기</a>
+                        </li>
+                        </c:forEach>
                     </ul>
-                    <a class="next" href=""></a>
-                    <a class="last" href=""></a>
-                </div>
+
+                    <div id="pagination" class="pagination">
+                        <c:if test="${paging.firstPageNum > 0}">
+                            <a class="first" href="#" keyValue="${paging.firstPageNum}"></a>
+                        </c:if>
+
+                        <c:if test="${paging.prevPageNum > 0}">
+                            <a class="prev" href="#" keyValue="${paging.prevPageNum}"></a>
+                        </c:if>
+
+                        <ul>
+                            <c:forEach var="i" begin="${paging.startPageNum}" end="${paging.endPageNum}">
+                                <li <c:if test='${paging.viewPage eq i}'>class="active"</c:if>>${i}</li>
+                            </c:forEach>
+                        </ul>
+
+                        <c:if test="${paging.nextPageNum > 0}">
+                            <a class="next" href="#" keyValue="${paging.nextPageNum}"></a>
+                        </c:if>
+
+                        <c:if test="${paging.totalPageCount ne paging.lastPageNum}">
+                            <a class="last" href="#" keyValue="${paging.totalPageCount}"></a>
+                        </c:if>
+                    </div>
+                </form>
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/smart/nav.jsp"/>
         </div>
