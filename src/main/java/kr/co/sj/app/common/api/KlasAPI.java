@@ -24,6 +24,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Controller("KLAS")
@@ -531,11 +533,30 @@ public class KlasAPI {
 			member.setPhone((String) userData.get("H_PHONE"));
 			member.setEmail((String) userData.get("E_MAIL"));
 			member.setGpin_sex((String) userData.get("GPIN_SEX"));
+			member.setLogin(true);
 
 			String birthday = String.valueOf(userData.get("BIRTHDAY"));
 
 			if (StringUtils.isNotEmpty(birthday) && !StringUtils.equals(birthday, "null")) {
 				member.setBirth_day(birthday.replaceAll("/", "-"));
+
+				try {
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+					LocalDate birthDate = LocalDate.parse(birthday, formatter);
+					LocalDate today = LocalDate.now();
+
+					int age = Period.between(birthDate, today).getYears();
+
+					LocalDate thisYearsBirthday = birthDate.withYear(today.getYear());
+					if (today.isBefore(thisYearsBirthday)) {
+						age -= 1;
+					}
+
+					member.setAge(String.valueOf(age));
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

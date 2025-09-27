@@ -1,4 +1,10 @@
 <%@ page language="java" pageEncoding="utf-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -40,37 +46,30 @@
                     <div>
                         <label for="sex">성별</label>
                         <select id="sex">
-                            <option value="">전체</option>
-                            <option value="0">여성</option>
-                            <option value="1">남성</option>
+                            <option value="" <c:if test="${empty sessionScope.member.gpin_sex}">selected</c:if>>전체</option>
+                            <option value="0" <c:if test="${sessionScope.member.gpin_sex == '1'}">selected</c:if>>여성</option>
+                            <option value="1" <c:if test="${sessionScope.member.gpin_sex == '0'}">selected</c:if>>남성</option>
                         </select>
                     </div>
                     <div>
                         <label for="book_keyword_age">나이</label>
-                        <select id="book_keyword_age">
-                            <option value="">전체</option>
-                            <option value="4">영유아</option>
-                            <option value="5">유아</option>
-                            <option value="8">초등</option>
-                            <option value="14">청소년</option>
-                            <option value="25">20대 이상</option>
-                            <option value="30">30대 이상</option>
-                            <option value="40">40대 이상</option>
-                            <option value="50">50대 이상</option>
-                            <option value="60">60대 이상</option>
+                        <select id="book_keyword_age" name="book_keyword_age">
+                            <option value="" ${empty sessionScope.member.age ? 'selected' : ''}>전체</option>
+                            <option value="4"  ${(sessionScope.member.age <= 4) ? 'selected' : ''}>영유아</option>
+                            <option value="5"  ${(sessionScope.member.age >= 5  && sessionScope.member.age < 8)  ? 'selected' : ''}>유아</option>
+                            <option value="8"  ${(sessionScope.member.age >= 8  && sessionScope.member.age < 14) ? 'selected' : ''}>초등</option>
+                            <option value="14" ${(sessionScope.member.age >= 14 && sessionScope.member.age < 20) ? 'selected' : ''}>청소년</option>
+                            <option value="25" ${(sessionScope.member.age >= 20 && sessionScope.member.age < 30) ? 'selected' : ''}>20대 이상</option>
+                            <option value="30" ${(sessionScope.member.age >= 30 && sessionScope.member.age < 40) ? 'selected' : ''}>30대 이상</option>
+                            <option value="40" ${(sessionScope.member.age >= 40 && sessionScope.member.age < 50) ? 'selected' : ''}>40대 이상</option>
+                            <option value="50" ${(sessionScope.member.age >= 50 && sessionScope.member.age < 60) ? 'selected' : ''}>50대 이상</option>
+                            <option value="60" ${(sessionScope.member.age >= 60) ? 'selected' : ''}>60대 이상</option>
                         </select>
                     </div>
                 </div>
                 <button class="submit" onclick="recomend();">도서추천받기</button>
             </div>
             <jsp:include page="/WEB-INF/views/app/ict/dglib/smart/nav.jsp"/>
-        </div>
-
-        <div id="commonPopup" class="commonPopup" style="display:none;">
-            <div class="commonPopupContent">
-                <div id="commonPopupMessage"></div>
-                <button id="commonPopupClose">확인</button>
-            </div>
         </div>
     </div>
     <div class="scrollUp">
